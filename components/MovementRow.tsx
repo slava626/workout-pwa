@@ -5,33 +5,30 @@ import { Movement } from '@/types/workout';
 
 interface Props {
   movement: Movement;
+  rowId: string;       // unique per round (e.g. "wod-1-r2")
   sessionKey: string;
 }
 
-function getSessionState(key: string) {
-  if (typeof window === 'undefined') return { checks: {}, notes: {} };
-  try {
-    return JSON.parse(localStorage.getItem(key) ?? '{}');
-  } catch {
-    return {};
-  }
+function getSession(key: string): Record<string, unknown> {
+  if (typeof window === 'undefined') return {};
+  try { return JSON.parse(localStorage.getItem(key) ?? '{}'); } catch { return {}; }
 }
 
-function saveSessionState(key: string, state: object) {
+function saveSession(key: string, state: Record<string, unknown>) {
   localStorage.setItem(key, JSON.stringify(state));
 }
 
-const PRESET_NOTES = ['Too Easy', 'Too Hard', 'Reduced Load', 'Increased Reps', 'Skipped'];
+const PRESETS = ['Too Easy', 'Too Hard', 'Reduced Load', 'Increased Reps', 'Skipped'];
 
-export default function MovementRow({ movement, sessionKey }: Props) {
+export default function MovementRow({ movement, rowId, sessionKey }: Props) {
   const [checked, setChecked] = useState(() => {
-    const s = getSessionState(sessionKey);
-    return !!(s.checks?.[movement.id]);
+    const s = getSession(sessionKey);
+    return !!(s.checks as Record<string, boolean> | undefined)?.[rowId];
   });
 
   const [note, setNote] = useState<string>(() => {
-    const s = getSessionState(sessionKey);
-    return s.notes?.[movement.id] ?? '';
+    const s = getSession(sessionKey);
+    return (s.notes as Record<string, string> | undefined)?.[rowId] ?? '';
   });
 
   const [notesOpen, setNotesOpen] = useState(false);
@@ -39,33 +36,29 @@ export default function MovementRow({ movement, sessionKey }: Props) {
   const toggleCheck = useCallback(() => {
     setChecked((prev) => {
       const next = !prev;
-      const s = getSessionState(sessionKey);
-      s.checks = { ...(s.checks ?? {}), [movement.id]: next };
-      saveSessionState(sessionKey, s);
+      const s = getSession(sessionKey);
+      const checks = (s.checks as Record<string, boolean> | undefined) ?? {};
+      checks[rowId] = next;
+      s.checks = checks;
+      saveSession(sessionKey, s);
       return next;
     });
-  }, [sessionKey, movement.id]);
+  }, [sessionKey, rowId]);
 
   const saveNote = useCallback((text: string) => {
     setNote(text);
-    const s = getSessionState(sessionKey);
-    s.notes = { ...(s.notes ?? {}), [movement.id]: text };
-    saveSessionState(sessionKey, s);
-  }, [sessionKey, movement.id]);
+    const s = getSession(sessionKey);
+    const notes = (s.notes as Record<string, string> | undefined) ?? {};
+    notes[rowId] = text;
+    s.notes = notes;
+    saveSession(sessionKey, s);
+  }, [sessionKey, rowId]);
 
-  const appendPreset = (preset: string) => {
-    const next = note ? `${note}, ${preset}` : preset;
-    saveNote(next);
-  };
-
-  // Build the detail line
   const details = [
     movement.sets ? `${movement.sets} sets` : null,
     movement.reps ? `× ${movement.reps}` : null,
     movement.weight ? `@ ${movement.weight}` : null,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  ].filter(Boolean).join(' ');
 
   return (
     <div>
@@ -88,54 +81,41 @@ export default function MovementRow({ movement, sessionKey }: Props) {
           )}
         </button>
 
-        {/* Movement info */}
-        <div className={['flex-1 min-w-0', checked ? 'opacity-50' : ''].join(' ')}>
+        {/* Info */}
+        <div className={['flex-1 min-w-0', checked ? 'opacity-40' : ''].join(' ')}>
           <div className="text-white font-medium text-base leading-tight">{movement.name}</div>
-          {details && (
-            <div className="text-gray-400 text-sm mt-0.5">{details}</div>
-          )}
-          {movement.note && (
-            <div className="text-gray-500 text-xs mt-0.5 italic">{movement.note}</div>
-          )}
+          {details && <div className="text-gray-400 text-sm mt-0.5">{details}</div>}
+          {movement.note && <div className="text-gray-500 text-xs mt-0.5 italic">{movement.note}</div>}
         </div>
 
-        {/* Notes toggle */}
+        {/* Notes icon */}
         <button
           onClick={() => setNotesOpen((o) => !o)}
-          className={[
-            'w-8 h-8 flex items-center justify-center rounded-lg transition-colors flex-shrink-0',
-            note ? 'text-yellow-400' : 'text-gray-600 active:text-gray-300',
-          ].join(' ')}
-          aria-label="Add note"
+          className={['w-8 h-8 flex items-center justify-center rounded-lg transition-colors flex-shrink-0', note ? 'text-yellow-400' : 'text-gray-600 active:text-gray-300'].join(' ')}
+          aria-label="Notes"
         >
-          {note ? (
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M4 4h16v12H4zM4 18l4-2h12v2z" />
-            </svg>
-          ) : (
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M7 8h10M7 12h7m-7 4h4M5 4h14a1 1 0 011 1v11l-4 4H5a1 1 0 01-1-1V5a1 1 0 011-1z" />
-            </svg>
-          )}
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={note ? 0 : 1.5}>
+            {note
+              ? <path fill="currentColor" d="M4 4h16v12H4zM4 18l4-2h12v2z" />
+              : <path strokeLinecap="round" strokeLinejoin="round" d="M7 8h10M7 12h7m-7 4h4M5 4h14a1 1 0 011 1v11l-4 4H5a1 1 0 01-1-1V5a1 1 0 011-1z" />
+            }
+          </svg>
         </button>
       </div>
 
-      {/* Notes panel */}
       {notesOpen && (
         <div className="px-4 pb-3 pt-1 border-t border-gray-700/60 bg-gray-900/50">
-          {/* Preset tags */}
           <div className="flex flex-wrap gap-2 mb-2">
-            {PRESET_NOTES.map((p) => (
+            {PRESETS.map((p) => (
               <button
                 key={p}
-                onClick={() => appendPreset(p)}
+                onClick={() => saveNote(note ? `${note}, ${p}` : p)}
                 className="text-xs px-2.5 py-1 rounded-full bg-gray-700 text-gray-300 active:bg-gray-600 transition-colors"
               >
                 {p}
               </button>
             ))}
           </div>
-          {/* Free text */}
           <textarea
             value={note}
             onChange={(e) => saveNote(e.target.value)}

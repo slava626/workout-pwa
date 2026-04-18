@@ -18,6 +18,8 @@ const SECTION_COLORS: Record<string, string> = {
 
 export default function SectionBlock({ section, meta, user, date }: Props) {
   const headingColor = SECTION_COLORS[section.type] ?? 'text-gray-300';
+  const rounds = section.rounds && section.rounds > 1 ? section.rounds : 1;
+  const sessionKey = `${user}:${date}`;
 
   return (
     <div className="rounded-2xl bg-gray-800 overflow-hidden border border-gray-700">
@@ -29,14 +31,29 @@ export default function SectionBlock({ section, meta, user, date }: Props) {
         {meta && <span className="text-gray-400 text-xs">{meta}</span>}
       </div>
 
-      {/* Movements */}
+      {/* Rounds × movements */}
       <div className="divide-y divide-gray-700/60">
-        {section.movements.map((movement) => (
-          <MovementRow
-            key={movement.id}
-            movement={movement}
-            sessionKey={`${user}:${date}`}
-          />
+        {Array.from({ length: rounds }, (_, ri) => (
+          <div key={ri}>
+            {/* Round label — only show if more than 1 round */}
+            {rounds > 1 && (
+              <div className="px-4 py-1.5 bg-gray-900/50">
+                <span className="text-gray-500 text-xs font-semibold uppercase tracking-widest">
+                  Round {ri + 1}
+                </span>
+              </div>
+            )}
+            <div className="divide-y divide-gray-700/40">
+              {section.movements.map((movement) => (
+                <MovementRow
+                  key={`${movement.id}-r${ri + 1}`}
+                  movement={movement}
+                  rowId={`${movement.id}-r${ri + 1}`}
+                  sessionKey={sessionKey}
+                />
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </div>
