@@ -139,6 +139,17 @@ export default function WorkoutPage({ user }: Props) {
   const completedRows = Object.values(checks).filter(Boolean).length;
   const isComplete = timer.started && totalRows > 0 && completedRows >= totalRows;
 
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Stop timer and scroll to top when workout completes
+  useEffect(() => {
+    if (isComplete) {
+      timer.pause();
+      scrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isComplete]);
+
   return (
     <div className="flex flex-col h-full overflow-hidden">
       {/* Header — always visible */}
@@ -164,7 +175,7 @@ export default function WorkoutPage({ user }: Props) {
       )}
 
       {/* Scrollable content */}
-      <div className="flex-1 overflow-y-auto">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto">
         {error && (
           <div className="flex items-center justify-center h-40 text-gray-500 text-sm px-6 text-center">{error}</div>
         )}
