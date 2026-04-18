@@ -6,88 +6,485 @@
       "days": [
         {
           "day": "Monday",
-          "date": "2026-04-14",
+          "date": "2026-04-21",
           "sections": [
             {
               "type": "warmup",
-              "label": "Warm-Up",
-              "rounds": 2,
+              "label": "Cardio Warm-Up",
               "movements": [
-                { "id": "wu-1", "name": "PVC Pass-Throughs", "reps": 10 },
-                { "id": "wu-2", "name": "Air Squats", "reps": 10 },
-                { "id": "wu-3", "name": "Banded Pull-Aparts", "reps": 15 }
+                {
+                  "id": "wu-1",
+                  "name": "Bike",
+                  "note": "3 min for distance"
+                },
+                {
+                  "id": "wu-2",
+                  "name": "Row",
+                  "reps": 20,
+                  "note": "20 cal, smooth"
+                },
+                {
+                  "id": "wu-3",
+                  "name": "Bike",
+                  "note": "3 min for distance, faster"
+                },
+                {
+                  "id": "wu-4",
+                  "name": "Row",
+                  "reps": 20,
+                  "note": "20 cal, smooth"
+                }
               ]
             },
             {
               "type": "wod",
               "label": "WOD",
-              "rounds": 4,
               "movements": [
-                { "id": "wod-1", "name": "Back Squat", "sets": 3, "reps": 5, "weight": "135 lbs" },
-                { "id": "wod-2", "name": "Ring Rows", "sets": 3, "reps": 10 },
-                { "id": "wod-3", "name": "KB Swings", "sets": 3, "reps": 10, "weight": "35 lbs" }
+                {
+                  "id": "wod-1",
+                  "name": "Barbell Bench Press",
+                  "sets": 3,
+                  "reps": 15,
+                  "weight": "light"
+                },
+                {
+                  "id": "wod-2",
+                  "name": "Incline Barbell Bench Press",
+                  "sets": 3,
+                  "reps": 15
+                },
+                {
+                  "id": "wod-3",
+                  "name": "Plank Hold",
+                  "note": "1 min, try to stay up"
+                }
               ]
             },
             {
               "type": "cashout",
               "label": "Cash-Out",
-              "style": "amrap",
-              "duration": "8 min",
               "movements": [
-                { "id": "co-1", "name": "Burpees", "reps": 5 },
-                { "id": "co-2", "name": "Box Step-Ups", "reps": 10, "note": "20 inch box" }
+                {
+                  "id": "co-1",
+                  "name": "Bike",
+                  "note": "3 min for distance, faster than first"
+                },
+                {
+                  "id": "co-2",
+                  "name": "Knee Push-Ups",
+                  "reps": 10,
+                  "note": "smooth"
+                },
+                {
+                  "id": "co-3",
+                  "name": "Row",
+                  "reps": 20,
+                  "note": "20 cal, smooth"
+                },
+                {
+                  "id": "co-4",
+                  "name": "Knee Push-Ups",
+                  "reps": 10,
+                  "note": "smooth"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": "Tuesday",
+          "date": "2026-04-22",
+          "sections": [
+            {
+              "type": "warmup",
+              "label": "Cardio Warm-Up",
+              "movements": [
+                {
+                  "id": "wu-1",
+                  "name": "Bike",
+                  "reps": 25,
+                  "note": "25 cal, easy-moderate"
+                },
+                {
+                  "id": "wu-2",
+                  "name": "Row",
+                  "reps": 25,
+                  "note": "25 cal, smooth"
+                },
+                {
+                  "id": "wu-3",
+                  "name": "Bike",
+                  "reps": 10,
+                  "note": "10 cal, fast"
+                },
+                {
+                  "id": "wu-4",
+                  "name": "Row",
+                  "reps": 10,
+                  "note": "10 cal, fast"
+                },
+                {
+                  "id": "wu-5",
+                  "name": "Bike",
+                  "reps": 25,
+                  "note": "25 cal, easy-moderate"
+                },
+                {
+                  "id": "wu-6",
+                  "name": "Row",
+                  "reps": 25,
+                  "note": "25 cal, smooth"
+                }
+              ]
+            },
+            {
+              "type": "wod",
+              "label": "WOD",
+              "movements": [
+                {
+                  "id": "wod-1",
+                  "name": "Sit-Ups",
+                  "reps": 20,
+                  "note": "unbroken"
+                },
+                {
+                  "id": "wod-2",
+                  "name": "Knee Push-Ups",
+                  "reps": 10
+                },
+                {
+                  "id": "wod-3",
+                  "name": "Sit-Ups",
+                  "reps": 20
+                },
+                {
+                  "id": "wod-4",
+                  "name": "Dumbbell Overhead Press",
+                  "reps": 12,
+                  "weight": "5 lbs"
+                },
+                {
+                  "id": "wod-5",
+                  "name": "Sit-Ups",
+                  "reps": 20
+                },
+                {
+                  "id": "wod-6",
+                  "name": "Knee Push-Ups",
+                  "reps": 12
+                },
+                {
+                  "id": "wod-7",
+                  "name": "Sit-Ups",
+                  "reps": 20
+                }
+              ]
+            },
+            {
+              "type": "cashout",
+              "label": "Cash-Out",
+              "movements": [
+                {
+                  "id": "co-1",
+                  "name": "Jump Rope Singles",
+                  "reps": 40,
+                  "note": "easy rhythm"
+                },
+                {
+                  "id": "co-2",
+                  "name": "Elbow Plank Hold",
+                  "note": "2 min, break as needed"
+                }
               ]
             }
           ]
         },
         {
           "day": "Wednesday",
-          "date": "2026-04-16",
+          "date": "2026-04-23",
           "sections": [
             {
               "type": "warmup",
-              "label": "Warm-Up",
-              "rounds": 2,
+              "label": "Cardio Warm-Up",
               "movements": [
-                { "id": "wu-1", "name": "Banded Shoulder Circles", "reps": 10 },
-                { "id": "wu-2", "name": "Push-Up Plank Hold", "reps": 1, "note": "30 seconds" },
-                { "id": "wu-3", "name": "Scap Pull-Ups", "reps": 10 }
+                {
+                  "id": "wu-1",
+                  "name": "Bike",
+                  "note": "7.5 minutes"
+                },
+                {
+                  "id": "wu-2",
+                  "name": "Row",
+                  "note": "7.5 minutes"
+                }
               ]
             },
             {
               "type": "wod",
               "label": "WOD",
-              "rounds": 3,
               "movements": [
-                { "id": "wod-1", "name": "Romanian Deadlift", "sets": 3, "reps": 8, "weight": "115 lbs" },
-                { "id": "wod-2", "name": "Push-Ups", "sets": 3, "reps": 10 },
-                { "id": "wod-3", "name": "Barbell Row", "sets": 3, "reps": 10, "weight": "95 lbs" }
+                {
+                  "id": "wod-1",
+                  "name": "Step Ups",
+                  "reps": 10
+                },
+                {
+                  "id": "wod-2",
+                  "name": "Jumping Pull-Up",
+                  "reps": 10
+                },
+                {
+                  "id": "wod-3",
+                  "name": "Air Squats",
+                  "reps": 10
+                },
+                {
+                  "id": "wod-4",
+                  "name": "Jumping Pull-Up",
+                  "reps": 10
+                },
+                {
+                  "id": "wod-5",
+                  "name": "Step Ups",
+                  "reps": 10
+                },
+                {
+                  "id": "wod-6",
+                  "name": "Jumping Pull-Up",
+                  "reps": 10
+                },
+                {
+                  "id": "wod-7",
+                  "name": "Air Squats",
+                  "reps": 10
+                },
+                {
+                  "id": "wod-8",
+                  "name": "Jumping Pull-Up",
+                  "reps": 10
+                }
               ]
             },
             {
               "type": "cashout",
               "label": "Cash-Out",
-              "style": "emom",
-              "duration": "8 min",
               "movements": [
-                { "id": "co-1", "name": "Wall Balls", "reps": 8, "weight": "14 lbs", "note": "Odd minutes" },
-                { "id": "co-2", "name": "Sit-Ups", "reps": 12, "note": "Even minutes" }
+                {
+                  "id": "co-1",
+                  "name": "Jump Rope",
+                  "reps": 40
+                },
+                {
+                  "id": "co-2",
+                  "name": "Box Jumps",
+                  "reps": 15,
+                  "note": "10\u201312 inch box"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": "Thursday",
+          "date": "2026-04-24",
+          "sections": [
+            {
+              "type": "warmup",
+              "label": "Legs / Cardio",
+              "movements": [
+                {
+                  "id": "wu-1",
+                  "name": "Treadmill",
+                  "note": "1 min, easy"
+                },
+                {
+                  "id": "wu-2",
+                  "name": "Row",
+                  "reps": 35,
+                  "note": "35 cal, smooth"
+                },
+                {
+                  "id": "wu-3",
+                  "name": "Treadmill",
+                  "note": "1 min, easy"
+                },
+                {
+                  "id": "wu-4",
+                  "name": "Step-Back Lunges",
+                  "reps": 10
+                },
+                {
+                  "id": "wu-5",
+                  "name": "Treadmill",
+                  "note": "1 min, easy"
+                },
+                {
+                  "id": "wu-6",
+                  "name": "Air Squats",
+                  "reps": 10,
+                  "note": "controlled"
+                },
+                {
+                  "id": "wu-7",
+                  "name": "Treadmill",
+                  "note": "1 min, easy"
+                },
+                {
+                  "id": "wu-8",
+                  "name": "Step-Back Lunges",
+                  "reps": 10
+                },
+                {
+                  "id": "wu-9",
+                  "name": "Treadmill",
+                  "note": "1 min, easy"
+                },
+                {
+                  "id": "wu-10",
+                  "name": "Row",
+                  "reps": 35,
+                  "note": "35 cal, smooth"
+                },
+                {
+                  "id": "wu-11",
+                  "name": "Treadmill",
+                  "note": "1 min, easy"
+                }
+              ]
+            },
+            {
+              "type": "cashout",
+              "label": "Cash-Out",
+              "movements": [
+                {
+                  "id": "co-1",
+                  "name": "Leg Raise Hold",
+                  "note": "1 min"
+                },
+                {
+                  "id": "co-2",
+                  "name": "Plank Hold",
+                  "note": "2 min"
+                }
               ]
             }
           ]
         },
         {
           "day": "Friday",
-          "date": "2026-04-18",
+          "date": "2026-04-25",
+          "sections": [
+            {
+              "type": "warmup",
+              "label": "Cardio Warm-Up",
+              "movements": [
+                {
+                  "id": "wu-1",
+                  "name": "Bike",
+                  "reps": 30,
+                  "note": "30 cal, easy"
+                },
+                {
+                  "id": "wu-2",
+                  "name": "Row",
+                  "reps": 30,
+                  "note": "30 cal, smooth"
+                },
+                {
+                  "id": "wu-3",
+                  "name": "Ski",
+                  "reps": 30,
+                  "note": "30 cal, steady"
+                }
+              ]
+            },
+            {
+              "type": "wod",
+              "label": "WOD",
+              "movements": [
+                {
+                  "id": "wod-1",
+                  "name": "Barbell Bench Press",
+                  "sets": 3,
+                  "reps": 20,
+                  "weight": "two 10 lb dumbbells"
+                },
+                {
+                  "id": "wod-2",
+                  "name": "Banded Pull-Ups",
+                  "sets": 5,
+                  "reps": 5,
+                  "note": "double green band"
+                },
+                {
+                  "id": "wod-3",
+                  "name": "Barbell Curl",
+                  "sets": 3,
+                  "reps": 20,
+                  "weight": "10\u201315 lbs"
+                },
+                {
+                  "id": "wod-4",
+                  "name": "Ring Rows",
+                  "sets": 3,
+                  "reps": 15,
+                  "note": "easy, med, hard"
+                }
+              ]
+            },
+            {
+              "type": "cashout",
+              "label": "Cash-Out",
+              "movements": [
+                {
+                  "id": "co-1",
+                  "name": "Plank Hold",
+                  "note": "2 min, break as needed"
+                },
+                {
+                  "id": "co-2",
+                  "name": "Elevated Legs Plank Hold",
+                  "note": "2 min, break as needed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": "Saturday",
+          "date": "2026-04-26",
           "sections": [
             {
               "type": "warmup",
               "label": "Warm-Up",
-              "rounds": 2,
               "movements": [
-                { "id": "wu-1", "name": "Jump Rope", "reps": 30 },
-                { "id": "wu-2", "name": "Lunge Walk", "reps": 10 },
-                { "id": "wu-3", "name": "Superman Hold", "reps": 10 }
+                {
+                  "id": "wu-1",
+                  "name": "Jog",
+                  "note": "100m, very easy"
+                },
+                {
+                  "id": "wu-2",
+                  "name": "Air Squats",
+                  "reps": 5,
+                  "note": "smooth"
+                },
+                {
+                  "id": "wu-3",
+                  "name": "Deep Squat Pause",
+                  "reps": 5,
+                  "note": "controlled"
+                },
+                {
+                  "id": "wu-4",
+                  "name": "Ankle Rocks",
+                  "reps": 10
+                },
+                {
+                  "id": "wu-5",
+                  "name": "Hollow Hold",
+                  "note": "30s, scaled as needed"
+                }
               ]
             },
             {
@@ -95,18 +492,70 @@
               "label": "WOD",
               "rounds": 4,
               "movements": [
-                { "id": "wod-1", "name": "Front Squat", "sets": 3, "reps": 6, "weight": "95 lbs" },
-                { "id": "wod-2", "name": "Toes-to-Bar", "sets": 3, "reps": 8 },
-                { "id": "wod-3", "name": "Farmers Carry", "reps": 1, "weight": "45 lbs each", "note": "2 lengths" }
+                {
+                  "id": "wod-1",
+                  "name": "Back Squat",
+                  "reps": 20,
+                  "weight": "35 lbs bar",
+                  "note": "light"
+                },
+                {
+                  "id": "wod-2",
+                  "name": "Sit-Ups (AbMat)",
+                  "reps": 40,
+                  "note": "smooth, no yank"
+                },
+                {
+                  "id": "wod-3",
+                  "name": "Run",
+                  "note": "80m with moderate DBs or KBs"
+                }
               ]
             },
             {
               "type": "cashout",
-              "label": "Cash-Out",
-              "style": "tabata",
-              "duration": "4 min",
+              "label": "Cool-Down",
               "movements": [
-                { "id": "co-1", "name": "Air Squats", "note": "20s on / 10s off × 8" }
+                {
+                  "id": "co-1",
+                  "name": "Standing Toe Touch",
+                  "note": "1 min, ragdoll hang"
+                },
+                {
+                  "id": "co-2",
+                  "name": "Deep Lunge Stretch",
+                  "note": "1 min each side"
+                },
+                {
+                  "id": "co-3",
+                  "name": "Standing Quad Stretch",
+                  "note": "1 min each side"
+                },
+                {
+                  "id": "co-4",
+                  "name": "Pigeon Pose",
+                  "note": "1 min each side"
+                },
+                {
+                  "id": "co-5",
+                  "name": "Child's Pose",
+                  "note": "1 min, arms extended"
+                },
+                {
+                  "id": "co-6",
+                  "name": "Cross-Body Shoulder Stretch",
+                  "note": "1 min each side"
+                },
+                {
+                  "id": "co-7",
+                  "name": "Overhead Triceps Stretch",
+                  "note": "1 min each side"
+                },
+                {
+                  "id": "co-8",
+                  "name": "Wrist Flexor/Extensor Stretch",
+                  "note": "1 min each side"
+                }
               ]
             }
           ]
@@ -118,107 +567,195 @@
       "days": [
         {
           "day": "Monday",
-          "date": "2026-04-21",
+          "date": "2026-04-28",
           "sections": [
             {
               "type": "warmup",
-              "label": "Warm-Up",
-              "rounds": 2,
+              "label": "Cardio Warm-Up",
               "movements": [
-                { "id": "wu-1", "name": "PVC Pass-Throughs", "reps": 10 },
-                { "id": "wu-2", "name": "Goblet Squat", "reps": 10, "weight": "25 lbs" },
-                { "id": "wu-3", "name": "Hip Circles", "reps": 10 }
+                {
+                  "id": "wu-1",
+                  "name": "Bike",
+                  "note": "3 min for distance"
+                },
+                {
+                  "id": "wu-2",
+                  "name": "Row",
+                  "reps": 20,
+                  "note": "20 cal, smooth"
+                },
+                {
+                  "id": "wu-3",
+                  "name": "Bike",
+                  "note": "3 min for distance, faster"
+                },
+                {
+                  "id": "wu-4",
+                  "name": "Row",
+                  "reps": 20,
+                  "note": "20 cal, smooth"
+                }
               ]
             },
             {
               "type": "wod",
               "label": "WOD",
-              "rounds": 4,
               "movements": [
-                { "id": "wod-1", "name": "Back Squat", "sets": 3, "reps": 5, "weight": "145 lbs" },
-                { "id": "wod-2", "name": "Kipping Pull-Ups", "sets": 3, "reps": 8 },
-                { "id": "wod-3", "name": "KB Swings", "sets": 3, "reps": 12, "weight": "35 lbs" }
+                {
+                  "id": "wod-1",
+                  "name": "Barbell Bench Press",
+                  "sets": 3,
+                  "reps": 15,
+                  "weight": "light"
+                },
+                {
+                  "id": "wod-2",
+                  "name": "Incline Barbell Bench Press",
+                  "sets": 3,
+                  "reps": 15
+                },
+                {
+                  "id": "wod-3",
+                  "name": "Plank Hold",
+                  "note": "1 min, try to stay up"
+                }
               ]
             },
             {
               "type": "cashout",
               "label": "Cash-Out",
-              "style": "emom",
-              "duration": "10 min",
               "movements": [
-                { "id": "co-1", "name": "Burpee Box Jumps", "reps": 4, "note": "Odd minutes" },
-                { "id": "co-2", "name": "Double-Unders", "reps": 20, "note": "Even minutes" }
+                {
+                  "id": "co-1",
+                  "name": "Bike",
+                  "note": "3 min for distance, faster than first"
+                },
+                {
+                  "id": "co-2",
+                  "name": "Knee Push-Ups",
+                  "reps": 10,
+                  "note": "smooth"
+                },
+                {
+                  "id": "co-3",
+                  "name": "Row",
+                  "reps": 20,
+                  "note": "20 cal, smooth"
+                },
+                {
+                  "id": "co-4",
+                  "name": "Knee Push-Ups",
+                  "reps": 10,
+                  "note": "smooth"
+                }
               ]
             }
           ]
         },
         {
-          "day": "Wednesday",
-          "date": "2026-04-23",
+          "day": "Tuesday",
+          "date": "2026-04-29",
           "sections": [
             {
               "type": "warmup",
-              "label": "Warm-Up",
-              "rounds": 2,
+              "label": "Cardio Warm-Up",
               "movements": [
-                { "id": "wu-1", "name": "Banded Pull-Aparts", "reps": 15 },
-                { "id": "wu-2", "name": "Ring Row", "reps": 10 },
-                { "id": "wu-3", "name": "Thoracic Rotation", "reps": 8 }
+                {
+                  "id": "wu-1",
+                  "name": "Bike",
+                  "reps": 25,
+                  "note": "25 cal, easy-moderate"
+                },
+                {
+                  "id": "wu-2",
+                  "name": "Row",
+                  "reps": 25,
+                  "note": "25 cal, smooth"
+                },
+                {
+                  "id": "wu-3",
+                  "name": "Bike",
+                  "reps": 10,
+                  "note": "10 cal, fast"
+                },
+                {
+                  "id": "wu-4",
+                  "name": "Row",
+                  "reps": 10,
+                  "note": "10 cal, fast"
+                },
+                {
+                  "id": "wu-5",
+                  "name": "Bike",
+                  "reps": 25,
+                  "note": "25 cal, easy-moderate"
+                },
+                {
+                  "id": "wu-6",
+                  "name": "Row",
+                  "reps": 25,
+                  "note": "25 cal, smooth"
+                }
               ]
             },
             {
               "type": "wod",
               "label": "WOD",
-              "rounds": 4,
               "movements": [
-                { "id": "wod-1", "name": "Deadlift", "sets": 3, "reps": 5, "weight": "185 lbs" },
-                { "id": "wod-2", "name": "Pike Push-Ups", "sets": 3, "reps": 10 },
-                { "id": "wod-3", "name": "Pendlay Row", "sets": 3, "reps": 8, "weight": "105 lbs" }
+                {
+                  "id": "wod-1",
+                  "name": "Sit-Ups",
+                  "reps": 20,
+                  "note": "unbroken"
+                },
+                {
+                  "id": "wod-2",
+                  "name": "Knee Push-Ups",
+                  "reps": 10
+                },
+                {
+                  "id": "wod-3",
+                  "name": "Sit-Ups",
+                  "reps": 20
+                },
+                {
+                  "id": "wod-4",
+                  "name": "Dumbbell Overhead Press",
+                  "reps": 12,
+                  "weight": "5 lbs"
+                },
+                {
+                  "id": "wod-5",
+                  "name": "Sit-Ups",
+                  "reps": 20
+                },
+                {
+                  "id": "wod-6",
+                  "name": "Knee Push-Ups",
+                  "reps": 12
+                },
+                {
+                  "id": "wod-7",
+                  "name": "Sit-Ups",
+                  "reps": 20
+                }
               ]
             },
             {
               "type": "cashout",
               "label": "Cash-Out",
-              "style": "amrap",
-              "duration": "8 min",
               "movements": [
-                { "id": "co-1", "name": "Hang Power Clean", "reps": 5, "weight": "95 lbs" },
-                { "id": "co-2", "name": "Push-Ups", "reps": 10 }
-              ]
-            }
-          ]
-        },
-        {
-          "day": "Friday",
-          "date": "2026-04-25",
-          "sections": [
-            {
-              "type": "warmup",
-              "label": "Warm-Up",
-              "rounds": 2,
-              "movements": [
-                { "id": "wu-1", "name": "Jump Rope", "reps": 50 },
-                { "id": "wu-2", "name": "Lateral Band Walks", "reps": 15 },
-                { "id": "wu-3", "name": "Air Squat", "reps": 15 }
-              ]
-            },
-            {
-              "type": "wod",
-              "label": "WOD",
-              "rounds": 4,
-              "movements": [
-                { "id": "wod-1", "name": "Front Squat", "sets": 3, "reps": 6, "weight": "105 lbs" },
-                { "id": "wod-2", "name": "Kipping Pull-Ups", "sets": 3, "reps": 10 },
-                { "id": "wod-3", "name": "DB Step-Ups", "sets": 3, "reps": 10, "weight": "25 lbs each", "note": "20 inch box" }
-              ]
-            },
-            {
-              "type": "cashout",
-              "label": "Cash-Out",
-              "style": "tabata",
-              "duration": "4 min",
-              "movements": [
-                { "id": "co-1", "name": "Burpees", "note": "20s on / 10s off × 8" }
+                {
+                  "id": "co-1",
+                  "name": "Jump Rope Singles",
+                  "reps": 40,
+                  "note": "easy rhythm"
+                },
+                {
+                  "id": "co-2",
+                  "name": "Elbow Plank Hold",
+                  "note": "2 min, break as needed"
+                }
               ]
             }
           ]
