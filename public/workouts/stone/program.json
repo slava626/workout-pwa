@@ -23,8 +23,8 @@
               "label": "WOD",
               "rounds": 5,
               "movements": [
-                { "id": "wod-1", "name": "Back Squat", "sets": 3, "reps": 5, "weight": "185 lbs" },
-                { "id": "wod-2", "name": "Strict Pull-Ups", "sets": 3, "reps": 8 },
+                { "id": "wod-1", "name": "Back Squat", "sets": 3, "reps": 5, "weight": "185 lbs", "trackResult": true, "unit": "lbs" },
+                { "id": "wod-2", "name": "Strict Pull-Ups", "sets": 3, "reps": 8, "trackResult": true, "unit": "reps" },
                 { "id": "wod-3", "name": "KB Swings", "sets": 3, "reps": 10, "weight": "53 lbs" }
               ]
             },

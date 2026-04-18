@@ -1,20 +1,19 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { Program, WorkoutDay } from '@/types/workout';
 import WeekCalendar from './WeekCalendar';
 import WorkoutView from './WorkoutView';
+import WorkoutRecap from './WorkoutRecap';
 import TimerBar from './TimerBar';
+import ProgressBar from './ProgressBar';
+import CelebrationToast from './CelebrationToast';
 import { useTimer } from '@/hooks/useTimer';
 
-interface Props {
-  user: string;
-}
+interface Props { user: string; }
 
-function todayStr() {
-  return new Date().toISOString().split('T')[0];
-}
+function todayStr() { return new Date().toISOString().split('T')[0]; }
 
 function nearestWorkoutDay(program: Program, from: string): string | null {
   const allDates = program.weeks.flatMap((w) => w.days.map((d) => d.date)).sort();
@@ -23,19 +22,39 @@ function nearestWorkoutDay(program: Program, from: string): string | null {
   return upcoming ?? allDates[allDates.length - 1] ?? null;
 }
 
+function getTotalRows(workout: WorkoutDay): number {
+  return workout.sections.reduce((sum, s) => {
+    const rounds = s.rounds && s.rounds > 1 ? s.rounds : 1;
+    return sum + rounds * s.movements.length;
+  }, 0);
+}
+
+function sessionKey(user: string, date: string) { return `session:${user}:${date}`; }
+
+function loadSession(key: string) {
+  if (typeof window === 'undefined') return { checks: {}, notes: {}, results: {} };
+  try { return JSON.parse(localStorage.getItem(key) ?? '{}'); } catch { return {}; }
+}
+
+function saveSession(key: string, data: object) {
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
 export default function WorkoutPage({ user }: Props) {
   const [program, setProgram] = useState<Program | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [selectedDate, setSelectedDate] = useState<string>(todayStr());
+  const [checks, setChecks] = useState<Record<string, boolean>>({});
+  const [notes, setNotes] = useState<Record<string, string>>({});
+  const [results, setResults] = useState<Record<string, string>>({});
+  const [celebrationTrigger, setCelebrationTrigger] = useState(0);
   const wakeLockRef = useRef<WakeLockSentinel | null>(null);
   const timer = useTimer();
 
+  // Load program
   useEffect(() => {
     fetch(`/workouts/${user}/program.json`)
-      .then((r) => {
-        if (!r.ok) throw new Error(`No program found for ${user}`);
-        return r.json() as Promise<Program>;
-      })
+      .then((r) => { if (!r.ok) throw new Error(`No program found for ${user}`); return r.json() as Promise<Program>; })
       .then((p) => {
         setProgram(p);
         const nearest = nearestWorkoutDay(p, todayStr());
@@ -44,113 +63,147 @@ export default function WorkoutPage({ user }: Props) {
       .catch((e) => setError(e.message));
   }, [user]);
 
-  // Acquire / release wake lock with timer running state
+  // Load session state when date/user changes
+  useEffect(() => {
+    const key = sessionKey(user, selectedDate);
+    const s = loadSession(key);
+    setChecks(s.checks ?? {});
+    setNotes(s.notes ?? {});
+    setResults(s.results ?? {});
+  }, [user, selectedDate]);
+
+  // Wake lock management
   useEffect(() => {
     if (!timer.started) return;
-
-    async function acquireWakeLock() {
+    const acquire = async () => {
       if ('wakeLock' in navigator && timer.running) {
-        try {
-          wakeLockRef.current = await navigator.wakeLock.request('screen');
-        } catch {
-          // wake lock not available — silently continue
-        }
+        try { wakeLockRef.current = await navigator.wakeLock.request('screen'); } catch { /* unsupported */ }
       }
-    }
-
-    async function releaseWakeLock() {
-      if (wakeLockRef.current) {
-        await wakeLockRef.current.release();
-        wakeLockRef.current = null;
-      }
-    }
-
-    if (timer.running) {
-      acquireWakeLock();
-    } else {
-      releaseWakeLock();
-    }
-
-    return () => { releaseWakeLock(); };
+    };
+    const release = async () => {
+      if (wakeLockRef.current) { await wakeLockRef.current.release(); wakeLockRef.current = null; }
+    };
+    if (timer.running) acquire(); else release();
+    return () => { release(); };
   }, [timer.running, timer.started]);
 
-  // Re-acquire wake lock when app comes back to foreground
+  // Re-acquire wake lock on visibility change
   useEffect(() => {
     if (!timer.started || !timer.running) return;
     const handler = async () => {
       if (document.visibilityState === 'visible' && !wakeLockRef.current) {
-        try {
-          wakeLockRef.current = await navigator.wakeLock.request('screen');
-        } catch { /* ignore */ }
+        try { wakeLockRef.current = await navigator.wakeLock.request('screen'); } catch { /* ignore */ }
       }
     };
     document.addEventListener('visibilitychange', handler);
     return () => document.removeEventListener('visibilitychange', handler);
   }, [timer.started, timer.running]);
 
-  const selectedWorkout: WorkoutDay | null =
-    program?.weeks.flatMap((w) => w.days).find((d) => d.date === selectedDate) ?? null;
+  const handleCheck = useCallback((rowId: string, value: boolean) => {
+    setChecks((prev) => {
+      const next = { ...prev, [rowId]: value };
+      const key = sessionKey(user, selectedDate);
+      const s = loadSession(key);
+      s.checks = next;
+      saveSession(key, s);
+      return next;
+    });
+    if (value) setCelebrationTrigger((n) => n + 1);
+  }, [user, selectedDate]);
 
-  const allDays = program?.weeks.flatMap((w) =>
-    w.days.map((d) => ({ date: d.date, day: d.day }))
-  ) ?? [];
+  const handleNote = useCallback((rowId: string, value: string) => {
+    setNotes((prev) => {
+      const next = { ...prev, [rowId]: value };
+      const key = sessionKey(user, selectedDate);
+      const s = loadSession(key);
+      s.notes = next;
+      saveSession(key, s);
+      return next;
+    });
+  }, [user, selectedDate]);
+
+  const handleResult = useCallback((rowId: string, value: string) => {
+    setResults((prev) => {
+      const next = { ...prev, [rowId]: value };
+      const key = sessionKey(user, selectedDate);
+      const s = loadSession(key);
+      s.results = next;
+      saveSession(key, s);
+      return next;
+    });
+  }, [user, selectedDate]);
+
+  const selectedWorkout = program?.weeks.flatMap((w) => w.days).find((d) => d.date === selectedDate) ?? null;
+  const allDays = program?.weeks.flatMap((w) => w.days.map((d) => ({ date: d.date, day: d.day }))) ?? [];
+  const totalRows = selectedWorkout ? getTotalRows(selectedWorkout) : 0;
+  const completedRows = Object.values(checks).filter(Boolean).length;
+  const isComplete = timer.started && totalRows > 0 && completedRows >= totalRows;
 
   return (
-    <div className="flex flex-col min-h-full">
-      {/* Header */}
-      <header className="flex items-center justify-between px-4 pt-4 pb-3 border-b border-gray-800">
-        <Link href="/" className="text-gray-400 text-sm active:text-white transition-colors">
-          ← Back
-        </Link>
+    <div className="flex flex-col h-full overflow-hidden">
+      {/* Header — always visible */}
+      <header className="flex items-center justify-between px-4 pt-4 pb-3 border-b border-gray-800 flex-shrink-0">
+        <Link href="/" className="text-gray-400 text-sm active:text-white transition-colors">← Back</Link>
         <h1 className="text-white font-semibold capitalize">{user}</h1>
         <div className="w-10" />
       </header>
 
-      {/* Timer bar — visible once workout started */}
+      {/* Sticky timer + progress — shown once workout started */}
       {timer.started && (
-        <TimerBar
-          elapsed={timer.elapsed}
-          running={timer.running}
-          onPause={timer.pause}
-          onResume={timer.resume}
-        />
+        <div className="flex-shrink-0">
+          <TimerBar elapsed={timer.elapsed} running={timer.running} onPause={timer.pause} onResume={timer.resume} />
+          <ProgressBar completed={completedRows} total={totalRows} />
+        </div>
       )}
 
-      {/* Week calendar */}
-      {program && (
-        <WeekCalendar
-          allDays={allDays}
-          selectedDate={selectedDate}
-          onSelect={setSelectedDate}
-        />
+      {/* Calendar — hidden once started */}
+      {!timer.started && program && (
+        <div className="flex-shrink-0">
+          <WeekCalendar allDays={allDays} selectedDate={selectedDate} onSelect={setSelectedDate} />
+        </div>
       )}
 
-      {/* Content */}
+      {/* Scrollable content */}
       <div className="flex-1 overflow-y-auto">
         {error && (
-          <div className="flex items-center justify-center h-40 text-gray-500 text-sm px-6 text-center">
-            {error}
-          </div>
+          <div className="flex items-center justify-center h-40 text-gray-500 text-sm px-6 text-center">{error}</div>
         )}
         {!program && !error && (
-          <div className="flex items-center justify-center h-40 text-gray-500 text-sm">
-            Loading…
-          </div>
+          <div className="flex items-center justify-center h-40 text-gray-500 text-sm">Loading…</div>
         )}
         {program && !selectedWorkout && (
           <div className="flex items-center justify-center h-40 text-gray-500 text-sm px-6 text-center">
             No workout scheduled for this day.
           </div>
         )}
-        {selectedWorkout && (
+        {selectedWorkout && !isComplete && (
           <WorkoutView
             workout={selectedWorkout}
             user={user}
             workoutStarted={timer.started}
             onStartWorkout={timer.start}
+            checks={checks}
+            notes={notes}
+            results={results}
+            onCheck={handleCheck}
+            onNote={handleNote}
+            onResult={handleResult}
+          />
+        )}
+        {selectedWorkout && isComplete && (
+          <WorkoutRecap
+            workout={selectedWorkout}
+            elapsed={timer.elapsed}
+            checks={checks}
+            notes={notes}
+            results={results}
+            user={user}
           />
         )}
       </div>
+
+      {/* Celebration overlay */}
+      <CelebrationToast trigger={celebrationTrigger} />
     </div>
   );
 }
