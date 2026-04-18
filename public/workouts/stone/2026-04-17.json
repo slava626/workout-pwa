@@ -1,0 +1,38 @@
+{
+  "date": "2026-04-17",
+  "user": "stone",
+  "sections": [
+    {
+      "type": "warmup",
+      "label": "Warm-Up",
+      "rounds": 3,
+      "movements": [
+        { "id": "wu-1", "name": "PVC Pass-Throughs", "reps": 10 },
+        { "id": "wu-2", "name": "Air Squats", "reps": 10 },
+        { "id": "wu-3", "name": "Hip Circles", "reps": 10 },
+        { "id": "wu-4", "name": "Inchworm to Push-Up", "reps": 5 }
+      ]
+    },
+    {
+      "type": "wod",
+      "label": "WOD",
+      "rounds": 5,
+      "movements": [
+        { "id": "wod-1", "name": "Back Squat", "sets": 3, "reps": 5, "weight": "185 lbs" },
+        { "id": "wod-2", "name": "Strict Pull-Ups", "sets": 3, "reps": 8 },
+        { "id": "wod-3", "name": "KB Swings", "sets": 3, "reps": 10, "weight": "53 lbs" },
+        { "id": "wod-4", "name": "Box Jumps", "sets": 3, "reps": 10, "note": "24 inch box" }
+      ]
+    },
+    {
+      "type": "cashout",
+      "label": "Cash-Out",
+      "style": "emom",
+      "duration": "10 min",
+      "movements": [
+        { "id": "co-1", "name": "Burpees", "reps": 5, "note": "Odd minutes" },
+        { "id": "co-2", "name": "Double-Unders", "reps": 30, "note": "Even minutes" }
+      ]
+    }
+  ]
+}

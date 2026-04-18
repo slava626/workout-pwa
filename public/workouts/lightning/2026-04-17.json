@@ -1,0 +1,36 @@
+{
+  "date": "2026-04-17",
+  "user": "lightning",
+  "sections": [
+    {
+      "type": "warmup",
+      "label": "Warm-Up",
+      "rounds": 2,
+      "movements": [
+        { "id": "wu-1", "name": "PVC Pass-Throughs", "reps": 10 },
+        { "id": "wu-2", "name": "Air Squats", "reps": 10 },
+        { "id": "wu-3", "name": "Banded Pull-Aparts", "reps": 15 }
+      ]
+    },
+    {
+      "type": "wod",
+      "label": "WOD",
+      "rounds": 4,
+      "movements": [
+        { "id": "wod-1", "name": "Back Squat", "sets": 3, "reps": 5, "weight": "135 lbs" },
+        { "id": "wod-2", "name": "Ring Rows", "sets": 3, "reps": 10 },
+        { "id": "wod-3", "name": "KB Swings", "sets": 3, "reps": 10, "weight": "35 lbs" }
+      ]
+    },
+    {
+      "type": "cashout",
+      "label": "Cash-Out",
+      "style": "amrap",
+      "duration": "8 min",
+      "movements": [
+        { "id": "co-1", "name": "Burpees", "reps": 5 },
+        { "id": "co-2", "name": "Box Step-Ups", "reps": 10, "note": "20 inch box" }
+      ]
+    }
+  ]
+}

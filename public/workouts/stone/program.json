@@ -1,0 +1,230 @@
+{
+  "user": "stone",
+  "weeks": [
+    {
+      "week": 1,
+      "days": [
+        {
+          "day": "Monday",
+          "date": "2026-04-14",
+          "sections": [
+            {
+              "type": "warmup",
+              "label": "Warm-Up",
+              "rounds": 3,
+              "movements": [
+                { "id": "wu-1", "name": "PVC Pass-Throughs", "reps": 10 },
+                { "id": "wu-2", "name": "Air Squats", "reps": 10 },
+                { "id": "wu-3", "name": "Hip Circles", "reps": 10 }
+              ]
+            },
+            {
+              "type": "wod",
+              "label": "WOD",
+              "rounds": 5,
+              "movements": [
+                { "id": "wod-1", "name": "Back Squat", "sets": 3, "reps": 5, "weight": "185 lbs" },
+                { "id": "wod-2", "name": "Strict Pull-Ups", "sets": 3, "reps": 8 },
+                { "id": "wod-3", "name": "KB Swings", "sets": 3, "reps": 10, "weight": "53 lbs" }
+              ]
+            },
+            {
+              "type": "cashout",
+              "label": "Cash-Out",
+              "style": "emom",
+              "duration": "10 min",
+              "movements": [
+                { "id": "co-1", "name": "Burpees", "reps": 5, "note": "Odd minutes" },
+                { "id": "co-2", "name": "Double-Unders", "reps": 30, "note": "Even minutes" }
+              ]
+            }
+          ]
+        },
+        {
+          "day": "Wednesday",
+          "date": "2026-04-16",
+          "sections": [
+            {
+              "type": "warmup",
+              "label": "Warm-Up",
+              "rounds": 2,
+              "movements": [
+                { "id": "wu-1", "name": "Banded Shoulder Circles", "reps": 10 },
+                { "id": "wu-2", "name": "Inchworm to Push-Up", "reps": 5 },
+                { "id": "wu-3", "name": "Scap Pull-Ups", "reps": 10 }
+              ]
+            },
+            {
+              "type": "wod",
+              "label": "WOD",
+              "rounds": 4,
+              "movements": [
+                { "id": "wod-1", "name": "Deadlift", "sets": 4, "reps": 3, "weight": "255 lbs" },
+                { "id": "wod-2", "name": "Ring Dips", "sets": 3, "reps": 8 },
+                { "id": "wod-3", "name": "Barbell Row", "sets": 3, "reps": 8, "weight": "135 lbs" }
+              ]
+            },
+            {
+              "type": "cashout",
+              "label": "Cash-Out",
+              "style": "amrap",
+              "duration": "8 min",
+              "movements": [
+                { "id": "co-1", "name": "Wall Balls", "reps": 10, "weight": "20 lbs" },
+                { "id": "co-2", "name": "Box Jumps", "reps": 8, "note": "24 inch box" }
+              ]
+            }
+          ]
+        },
+        {
+          "day": "Friday",
+          "date": "2026-04-18",
+          "sections": [
+            {
+              "type": "warmup",
+              "label": "Warm-Up",
+              "rounds": 3,
+              "movements": [
+                { "id": "wu-1", "name": "Jump Rope", "reps": 50 },
+                { "id": "wu-2", "name": "Lunge with Rotation", "reps": 10 },
+                { "id": "wu-3", "name": "Bear Crawl", "reps": 1, "note": "20m" }
+              ]
+            },
+            {
+              "type": "wod",
+              "label": "WOD",
+              "rounds": 5,
+              "movements": [
+                { "id": "wod-1", "name": "Front Squat", "sets": 3, "reps": 5, "weight": "155 lbs" },
+                { "id": "wod-2", "name": "Toes-to-Bar", "sets": 3, "reps": 10 },
+                { "id": "wod-3", "name": "Farmers Carry", "reps": 1, "weight": "70 lbs each", "note": "2 lengths" }
+              ]
+            },
+            {
+              "type": "cashout",
+              "label": "Cash-Out",
+              "style": "tabata",
+              "duration": "4 min",
+              "movements": [
+                { "id": "co-1", "name": "Air Squats", "note": "20s on / 10s off × 8" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "days": [
+        {
+          "day": "Monday",
+          "date": "2026-04-21",
+          "sections": [
+            {
+              "type": "warmup",
+              "label": "Warm-Up",
+              "rounds": 3,
+              "movements": [
+                { "id": "wu-1", "name": "PVC Pass-Throughs", "reps": 10 },
+                { "id": "wu-2", "name": "Goblet Squat", "reps": 10, "weight": "35 lbs" },
+                { "id": "wu-3", "name": "Hip Circles", "reps": 10 }
+              ]
+            },
+            {
+              "type": "wod",
+              "label": "WOD",
+              "rounds": 5,
+              "movements": [
+                { "id": "wod-1", "name": "Back Squat", "sets": 3, "reps": 5, "weight": "195 lbs" },
+                { "id": "wod-2", "name": "Weighted Pull-Ups", "sets": 3, "reps": 6, "weight": "+25 lbs" },
+                { "id": "wod-3", "name": "KB Swings", "sets": 3, "reps": 12, "weight": "53 lbs" }
+              ]
+            },
+            {
+              "type": "cashout",
+              "label": "Cash-Out",
+              "style": "emom",
+              "duration": "12 min",
+              "movements": [
+                { "id": "co-1", "name": "Muscle-Ups", "reps": 3, "note": "Min 1, 4, 7, 10" },
+                { "id": "co-2", "name": "Burpee Box Jumps", "reps": 5, "note": "Min 2, 5, 8, 11" },
+                { "id": "co-3", "name": "Rest", "note": "Min 3, 6, 9, 12" }
+              ]
+            }
+          ]
+        },
+        {
+          "day": "Wednesday",
+          "date": "2026-04-23",
+          "sections": [
+            {
+              "type": "warmup",
+              "label": "Warm-Up",
+              "rounds": 2,
+              "movements": [
+                { "id": "wu-1", "name": "Banded Pull-Aparts", "reps": 15 },
+                { "id": "wu-2", "name": "Ring Row", "reps": 10 },
+                { "id": "wu-3", "name": "Hip 90/90 Stretch", "reps": 5 }
+              ]
+            },
+            {
+              "type": "wod",
+              "label": "WOD",
+              "rounds": 4,
+              "movements": [
+                { "id": "wod-1", "name": "Deadlift", "sets": 4, "reps": 3, "weight": "275 lbs" },
+                { "id": "wod-2", "name": "Strict HSPU", "sets": 3, "reps": 6 },
+                { "id": "wod-3", "name": "Pendlay Row", "sets": 3, "reps": 8, "weight": "145 lbs" }
+              ]
+            },
+            {
+              "type": "cashout",
+              "label": "Cash-Out",
+              "style": "amrap",
+              "duration": "10 min",
+              "movements": [
+                { "id": "co-1", "name": "Hang Power Clean", "reps": 5, "weight": "135 lbs" },
+                { "id": "co-2", "name": "Push-Ups", "reps": 10 }
+              ]
+            }
+          ]
+        },
+        {
+          "day": "Friday",
+          "date": "2026-04-25",
+          "sections": [
+            {
+              "type": "warmup",
+              "label": "Warm-Up",
+              "rounds": 3,
+              "movements": [
+                { "id": "wu-1", "name": "Jump Rope", "reps": 75 },
+                { "id": "wu-2", "name": "Lateral Band Walks", "reps": 15 },
+                { "id": "wu-3", "name": "Overhead Squat", "reps": 10, "weight": "PVC" }
+              ]
+            },
+            {
+              "type": "wod",
+              "label": "WOD",
+              "rounds": 5,
+              "movements": [
+                { "id": "wod-1", "name": "Front Squat", "sets": 3, "reps": 5, "weight": "165 lbs" },
+                { "id": "wod-2", "name": "Muscle-Ups", "sets": 3, "reps": 5 },
+                { "id": "wod-3", "name": "Sled Push", "reps": 2, "weight": "90 lbs", "note": "2 lengths" }
+              ]
+            },
+            {
+              "type": "cashout",
+              "label": "Cash-Out",
+              "style": "tabata",
+              "duration": "4 min",
+              "movements": [
+                { "id": "co-1", "name": "Burpees", "note": "20s on / 10s off × 8" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

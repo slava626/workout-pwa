@@ -1,0 +1,37 @@
+{
+  "date": "2026-04-17",
+  "user": "ice",
+  "sections": [
+    {
+      "type": "warmup",
+      "label": "Warm-Up",
+      "rounds": 2,
+      "movements": [
+        { "id": "wu-1", "name": "Jump Rope", "reps": 50 },
+        { "id": "wu-2", "name": "World's Greatest Stretch", "reps": 5 },
+        { "id": "wu-3", "name": "Glute Bridges", "reps": 15 }
+      ]
+    },
+    {
+      "type": "wod",
+      "label": "WOD",
+      "rounds": 3,
+      "movements": [
+        { "id": "wod-1", "name": "Romanian Deadlift", "sets": 3, "reps": 10, "weight": "95 lbs" },
+        { "id": "wod-2", "name": "Dumbbell Press", "sets": 3, "reps": 10, "weight": "30 lbs" },
+        { "id": "wod-3", "name": "Plank Hold", "reps": 1, "note": "45 seconds" }
+      ]
+    },
+    {
+      "type": "cashout",
+      "label": "Cash-Out",
+      "style": "stretch",
+      "duration": "10 min",
+      "movements": [
+        { "id": "co-1", "name": "Hip Flexor Stretch", "reps": 1, "note": "60 sec each side" },
+        { "id": "co-2", "name": "Pigeon Pose", "reps": 1, "note": "60 sec each side" },
+        { "id": "co-3", "name": "Child's Pose", "reps": 1, "note": "90 seconds" }
+      ]
+    }
+  ]
+}
