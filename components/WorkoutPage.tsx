@@ -22,10 +22,24 @@ function nearestWorkoutDay(program: Program, from: string): string | null {
   return upcoming ?? allDates[allDates.length - 1] ?? null;
 }
 
+const EMOM_STYLES = new Set(['emom', 'e2mom', 'e3mom']);
+
+function parseTotalMinutes(duration: string): number {
+  const m = duration.match(/(\d+)/);
+  return m ? parseInt(m[1]) : 0;
+}
+
 function getTotalRows(workout: WorkoutDay): number {
   return workout.sections.reduce((sum, s) => {
+    // EMOM sections: each interval = 1 checkable row
+    if (EMOM_STYLES.has(s.style ?? '') && s.duration) {
+      const totalMin = parseTotalMinutes(s.duration);
+      const everyN = s.style === 'e2mom' ? 2 : s.style === 'e3mom' ? 3 : 1;
+      return sum + Math.floor(totalMin / everyN);
+    }
+    // Normal sections: rounds × sum(sets per movement)
     const rounds = s.rounds && s.rounds > 1 ? s.rounds : 1;
-    return sum + rounds * s.movements.length;
+    return sum + rounds * s.movements.reduce((ms, m) => ms + (m.sets && m.sets > 1 ? m.sets : 1), 0);
   }, 0);
 }
 
@@ -48,6 +62,7 @@ export default function WorkoutPage({ user }: Props) {
   const [notes, setNotes] = useState<Record<string, string>>({});
   const [results, setResults] = useState<Record<string, string>>({});
   const [celebrationTrigger, setCelebrationTrigger] = useState(0);
+  const [isEnded, setIsEnded] = useState(false);
   const wakeLockRef = useRef<WakeLockSentinel | null>(null);
   const timer = useTimer();
 
@@ -70,6 +85,7 @@ export default function WorkoutPage({ user }: Props) {
     setChecks(s.checks ?? {});
     setNotes(s.notes ?? {});
     setResults(s.results ?? {});
+    setIsEnded(false);
   }, [user, selectedDate]);
 
   // Wake lock management
@@ -133,11 +149,28 @@ export default function WorkoutPage({ user }: Props) {
     });
   }, [user, selectedDate]);
 
+  const handleEnd = useCallback(() => {
+    timer.pause();
+    setIsEnded(true);
+  }, [timer]);
+
+  // Restart = clear session + fresh timer (keeps workout day selected)
+  const handleRestart = useCallback(() => {
+    const key = sessionKey(user, selectedDate);
+    saveSession(key, { checks: {}, notes: {}, results: {} });
+    setChecks({});
+    setNotes({});
+    setResults({});
+    setIsEnded(false);
+    timer.restart();
+  }, [user, selectedDate, timer]);
+
   const selectedWorkout = program?.weeks.flatMap((w) => w.days).find((d) => d.date === selectedDate) ?? null;
   const allDays = program?.weeks.flatMap((w) => w.days.map((d) => ({ date: d.date, day: d.day }))) ?? [];
   const totalRows = selectedWorkout ? getTotalRows(selectedWorkout) : 0;
   const completedRows = Object.values(checks).filter(Boolean).length;
   const isComplete = timer.started && totalRows > 0 && completedRows >= totalRows;
+  const showRecap = isComplete || isEnded;
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -162,7 +195,14 @@ export default function WorkoutPage({ user }: Props) {
       {/* Sticky timer + progress — shown once workout started */}
       {timer.started && (
         <div className="flex-shrink-0">
-          <TimerBar elapsed={timer.elapsed} running={timer.running} onPause={timer.pause} onResume={timer.resume} />
+          <TimerBar
+            elapsed={timer.elapsed}
+            running={timer.running}
+            onPause={timer.pause}
+            onResume={timer.resume}
+            onRestart={handleRestart}
+            onEnd={handleEnd}
+          />
           <ProgressBar completed={completedRows} total={totalRows} />
         </div>
       )}
@@ -187,7 +227,7 @@ export default function WorkoutPage({ user }: Props) {
             No workout scheduled for this day.
           </div>
         )}
-        {selectedWorkout && !isComplete && (
+        {selectedWorkout && !showRecap && (
           <WorkoutView
             workout={selectedWorkout}
             user={user}
@@ -201,7 +241,7 @@ export default function WorkoutPage({ user }: Props) {
             onResult={handleResult}
           />
         )}
-        {selectedWorkout && isComplete && (
+        {selectedWorkout && showRecap && (
           <WorkoutRecap
             workout={selectedWorkout}
             elapsed={timer.elapsed}

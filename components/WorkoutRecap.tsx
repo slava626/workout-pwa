@@ -18,6 +18,13 @@ const SECTION_COLORS: Record<string, string> = {
   cashout: 'text-green-400',
 };
 
+const EMOM_STYLES = new Set(['emom', 'e2mom', 'e3mom']);
+
+function parseTotalMinutes(duration: string): number {
+  const m = duration.match(/(\d+)/);
+  return m ? parseInt(m[1]) : 0;
+}
+
 export default function WorkoutRecap({ workout, elapsed, checks, notes, results, user }: Props) {
   const dateLabel = new Date(workout.date + 'T00:00:00').toLocaleDateString('en-US', {
     weekday: 'long', month: 'long', day: 'numeric',
@@ -47,29 +54,52 @@ export default function WorkoutRecap({ workout, elapsed, checks, notes, results,
       </div>
 
       {/* Sections summary */}
-      {workout.sections.map((section) => {
-        const rounds = section.rounds && section.rounds > 1 ? section.rounds : 1;
+      {workout.sections.map((section, si) => {
         const headingColor = SECTION_COLORS[section.type] ?? 'text-gray-300';
+        const isEmom = EMOM_STYLES.has(section.style ?? '');
 
         // Collect rows that have notes or results
         const rows: { name: string; note: string; result: string }[] = [];
-        for (let r = 1; r <= rounds; r++) {
-          for (const mv of section.movements) {
-            const rowId = `${mv.id}-r${r}`;
+
+        if (isEmom && section.duration) {
+          const totalMin = parseTotalMinutes(section.duration);
+          const everyN = section.style === 'e2mom' ? 2 : section.style === 'e3mom' ? 3 : 1;
+          const totalIntervals = Math.floor(totalMin / everyN);
+          for (let i = 0; i < totalIntervals; i++) {
+            const intervalNum = i + 1;
+            const mv = section.movements[i % section.movements.length];
+            const rowId = `${mv.id}-m${intervalNum}`;
             const note = notes[rowId] ?? '';
             const result = results[rowId] ?? '';
-            if (note || result || rounds > 1) {
-              rows.push({
-                name: rounds > 1 ? `R${r} · ${mv.name}` : mv.name,
-                note,
-                result,
-              });
+            const label = everyN === 1 ? `Min ${intervalNum}` : `${(intervalNum - 1) * everyN}:00–${intervalNum * everyN}:00`;
+            if (note || result) {
+              rows.push({ name: `${label} · ${mv.name}`, note, result });
+            }
+          }
+        } else {
+          const rounds = section.rounds && section.rounds > 1 ? section.rounds : 1;
+          for (let r = 1; r <= rounds; r++) {
+            for (const mv of section.movements) {
+              const sets = mv.sets && mv.sets > 1 ? mv.sets : 1;
+              for (let s = 1; s <= sets; s++) {
+                const rowId = sets > 1 ? `${mv.id}-r${r}-s${s}` : `${mv.id}-r${r}`;
+                const note = notes[rowId] ?? '';
+                const result = results[rowId] ?? '';
+                const label = [
+                  rounds > 1 ? `R${r}` : null,
+                  sets > 1 ? `S${s}` : null,
+                  mv.name,
+                ].filter(Boolean).join(' · ');
+                if (note || result || (rounds > 1 && s === 1) || sets > 1) {
+                  rows.push({ name: label, note, result });
+                }
+              }
             }
           }
         }
 
         return (
-          <div key={section.type} className="bg-gray-800 rounded-2xl overflow-hidden border border-gray-700">
+          <div key={`${section.type}-${si}`} className="bg-gray-800 rounded-2xl overflow-hidden border border-gray-700">
             <div className="px-4 py-3 border-b border-gray-700">
               <span className={`font-semibold text-sm uppercase tracking-wide ${headingColor}`}>
                 {section.label}

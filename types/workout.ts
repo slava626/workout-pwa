@@ -1,7 +1,7 @@
 export type UserName = 'stone' | 'lightning' | 'ice';
 
 export type SectionType = 'warmup' | 'wod' | 'cashout';
-export type CashoutStyle = 'emom' | 'amrap' | 'tabata' | 'stretch' | 'other';
+export type CashoutStyle = 'emom' | 'e2mom' | 'e3mom' | 'amrap' | 'tabata' | 'stretch' | 'other';
 export type DayOfWeek = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
 export type ResultUnit = 'reps' | 'calories' | 'time' | 'lbs' | 'kg' | 'meters';
 

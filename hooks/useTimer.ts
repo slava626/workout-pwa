@@ -9,6 +9,7 @@ export interface TimerControls {
   start: () => void;
   pause: () => void;
   resume: () => void;
+  restart: () => void;  // reset elapsed to 0, resume, keep started=true
 }
 
 export function useTimer(): TimerControls {
@@ -47,7 +48,15 @@ export function useTimer(): TimerControls {
     setRunning(true);
   }, []);
 
-  return { elapsed, running, started, start, pause, resume };
+  const restart = useCallback(() => {
+    accumulatedRef.current = 0;
+    startedAtRef.current = Date.now();
+    setElapsed(0);
+    setRunning(true);
+    // started stays true — workout remains in progress
+  }, []);
+
+  return { elapsed, running, started, start, pause, resume, restart };
 }
 
 export function formatElapsed(ms: number): string {

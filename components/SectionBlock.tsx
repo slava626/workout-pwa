@@ -20,8 +20,68 @@ const SECTION_COLORS: Record<string, string> = {
   cashout: 'text-green-400',
 };
 
+const EMOM_STYLES = new Set(['emom', 'e2mom', 'e3mom']);
+
+function intervalMinutes(style: string): number {
+  if (style === 'e2mom') return 2;
+  if (style === 'e3mom') return 3;
+  return 1;
+}
+
+function parseTotalMinutes(duration: string): number {
+  const m = duration.match(/(\d+)/);
+  return m ? parseInt(m[1]) : 0;
+}
+
 export default function SectionBlock({ section, meta, checks, notes, results, onCheck, onNote, onResult }: Props) {
   const headingColor = SECTION_COLORS[section.type] ?? 'text-gray-300';
+  const isEmom = EMOM_STYLES.has(section.style ?? '');
+
+  // ── EMOM / E2MOM / E3MOM layout ────────────────────────────────────────────
+  if (isEmom && section.duration) {
+    const totalMin = parseTotalMinutes(section.duration);
+    const everyN = intervalMinutes(section.style!);
+    const totalIntervals = Math.floor(totalMin / everyN);
+
+    return (
+      <div className="rounded-2xl bg-gray-800 overflow-hidden border border-gray-700">
+        <div className="flex items-baseline justify-between px-4 py-3 border-b border-gray-700">
+          <span className={`font-semibold text-sm uppercase tracking-wide ${headingColor}`}>
+            {section.label}
+          </span>
+          {meta && <span className="text-gray-400 text-xs">{meta}</span>}
+        </div>
+        <div className="divide-y divide-gray-700/60">
+          {Array.from({ length: totalIntervals }, (_, i) => {
+            const intervalNum = i + 1;
+            const movement = section.movements[i % section.movements.length];
+            const rowId = `${movement.id}-m${intervalNum}`;
+            const minuteStart = (intervalNum - 1) * everyN;
+            const minuteEnd = minuteStart + everyN;
+            const intervalLabel = everyN === 1
+              ? `Minute ${intervalNum}`
+              : `${minuteStart}:00 – ${minuteEnd}:00`;
+            return (
+              <MovementRow
+                key={rowId}
+                movement={movement}
+                rowId={rowId}
+                checked={!!checks[rowId]}
+                note={notes[rowId] ?? ''}
+                result={results[rowId] ?? ''}
+                onCheck={onCheck}
+                onNote={onNote}
+                onResult={onResult}
+                setLabel={intervalLabel}
+              />
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+
+  // ── Normal layout (rounds × sets per movement) ─────────────────────────────
   const rounds = section.rounds && section.rounds > 1 ? section.rounds : 1;
 
   return (
@@ -44,7 +104,27 @@ export default function SectionBlock({ section, meta, checks, notes, results, on
               </div>
             )}
             <div className="divide-y divide-gray-700/40">
-              {section.movements.map((movement) => {
+              {section.movements.flatMap((movement) => {
+                const sets = movement.sets && movement.sets > 1 ? movement.sets : 1;
+                if (sets > 1) {
+                  return Array.from({ length: sets }, (_, si) => {
+                    const rowId = `${movement.id}-r${ri + 1}-s${si + 1}`;
+                    return (
+                      <MovementRow
+                        key={rowId}
+                        movement={movement}
+                        rowId={rowId}
+                        checked={!!checks[rowId]}
+                        note={notes[rowId] ?? ''}
+                        result={results[rowId] ?? ''}
+                        onCheck={onCheck}
+                        onNote={onNote}
+                        onResult={onResult}
+                        setLabel={`Set ${si + 1} / ${sets}`}
+                      />
+                    );
+                  });
+                }
                 const rowId = `${movement.id}-r${ri + 1}`;
                 return (
                   <MovementRow

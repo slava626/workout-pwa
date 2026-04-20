@@ -9,6 +9,7 @@ interface Props {
   checked: boolean;
   note: string;
   result: string;
+  setLabel?: string;  // e.g. "Set 2 / 4" or "Minute 3"
   onCheck: (rowId: string, value: boolean) => void;
   onNote: (rowId: string, value: string) => void;
   onResult: (rowId: string, value: string) => void;
@@ -17,12 +18,13 @@ interface Props {
 const PRESETS = ['Too Easy', 'Too Hard', 'Reduced Load', 'Increased Reps', 'Skipped'];
 
 export default function MovementRow({
-  movement, rowId, checked, note, result, onCheck, onNote, onResult,
+  movement, rowId, checked, note, result, setLabel, onCheck, onNote, onResult,
 }: Props) {
   const [notesOpen, setNotesOpen] = useState(false);
 
+  // When expanded by set, hide the "N sets" prefix — it's shown in setLabel instead
   const details = [
-    movement.sets ? `${movement.sets} sets` : null,
+    !setLabel && movement.sets ? `${movement.sets} sets` : null,
     movement.reps ? `× ${movement.reps}` : null,
     movement.weight ? `@ ${movement.weight}` : null,
   ].filter(Boolean).join(' ');
@@ -50,6 +52,11 @@ export default function MovementRow({
 
         {/* Movement info */}
         <div className={['flex-1 min-w-0', checked ? 'opacity-40' : ''].join(' ')}>
+          {setLabel && (
+            <div className="text-gray-500 text-xs font-semibold uppercase tracking-widest mb-0.5">
+              {setLabel}
+            </div>
+          )}
           <div className="text-white font-semibold text-xl leading-tight">{movement.name}</div>
           {details && <div className="text-gray-400 text-base mt-0.5">{details}</div>}
           {movement.note && <div className="text-gray-500 text-sm mt-0.5 italic">{movement.note}</div>}
