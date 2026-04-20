@@ -5,6 +5,107 @@
       "week": 1,
       "days": [
         {
+          "day": "Sunday",
+          "date": "2026-04-19",
+          "sections": [
+            {
+              "type": "warmup",
+              "label": "Warm-Up",
+              "movements": [
+                {
+                  "id": "wu-1",
+                  "name": "PVC Muscle Cleans",
+                  "reps": 5
+                },
+                {
+                  "id": "wu-2",
+                  "name": "PVC Front Squats",
+                  "reps": 5
+                },
+                {
+                  "id": "wu-3",
+                  "name": "PVC Strict Press",
+                  "reps": 5
+                },
+                {
+                  "id": "wu-4",
+                  "name": "PVC Power Cleans",
+                  "reps": 5
+                },
+                {
+                  "id": "wu-5",
+                  "name": "Empty Bar Power Cleans",
+                  "sets": 2,
+                  "reps": 5,
+                  "weight": "45 lbs",
+                  "note": "build up in weight"
+                }
+              ]
+            },
+            {
+              "type": "wod",
+              "label": "Strength",
+              "movements": [
+                {
+                  "id": "wod-1",
+                  "name": "Power Cleans",
+                  "sets": 5,
+                  "reps": 15,
+                  "weight": "35 lbs",
+                  "note": "rest 90 sec between sets",
+                  "trackResult": true,
+                  "unit": "lbs"
+                }
+              ]
+            },
+            {
+              "type": "wod",
+              "label": "WOD",
+              "duration": "15 min AMRAP",
+              "movements": [
+                {
+                  "id": "wod-2",
+                  "name": "Power Cleans",
+                  "reps": 5,
+                  "weight": "35 lbs"
+                },
+                {
+                  "id": "wod-3",
+                  "name": "Knee Push-Ups",
+                  "reps": 10
+                },
+                {
+                  "id": "wod-4",
+                  "name": "Crunches",
+                  "reps": 15
+                }
+              ]
+            },
+            {
+              "type": "cashout",
+              "label": "Cool-Down",
+              "style": "stretch",
+              "movements": [
+                {
+                  "id": "co-1",
+                  "name": "Lat Stretch",
+                  "note": "30 sec each side"
+                },
+                {
+                  "id": "co-2",
+                  "name": "Wrist Circles",
+                  "note": "1 min"
+                },
+                {
+                  "id": "co-3",
+                  "name": "Couch Stretch",
+                  "note": "30 sec each side, light"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "day": "Monday",
           "date": "2026-04-21",
           "sections": [

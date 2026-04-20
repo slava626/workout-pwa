@@ -48,7 +48,7 @@ export default function WorkoutView({
         </button>
       )}
 
-      {workout.sections.map((section) => {
+      {workout.sections.map((section, i) => {
         const styleTag = section.type === 'cashout' && section.style ? STYLE_LABEL[section.style] || '' : '';
         const meta = [
           section.rounds && section.rounds > 1 ? `${section.rounds} rounds` : null,
@@ -58,7 +58,7 @@ export default function WorkoutView({
 
         return (
           <SectionBlock
-            key={section.type}
+            key={`${section.type}-${i}`}
             section={section}
             meta={meta}
             checks={checks}
