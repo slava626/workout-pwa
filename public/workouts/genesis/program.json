@@ -1,0 +1,54 @@
+{
+  "user": "genesis",
+  "weeks": [
+    {
+      "week": 1,
+      "days": [
+        {
+          "day": "Monday",
+          "date": "2026-04-20",
+          "sections": [
+            {
+              "type": "warmup",
+              "label": "Warm-Up",
+              "movements": [
+                { "id": "wu-1", "name": "Bird Dog", "reps": 10 },
+                { "id": "wu-2", "name": "Glute Bridge", "reps": 10 },
+                { "id": "wu-3", "name": "Deep Lunge", "reps": 10 },
+                { "id": "wu-4", "name": "Cat-Cow Stretch", "reps": 10 },
+                { "id": "wu-5", "name": "Back Extension", "reps": 10 },
+                { "id": "wu-6", "name": "Plank", "note": "30 seconds" }
+              ]
+            },
+            {
+              "type": "wod",
+              "label": "WOD",
+              "movements": [
+                { "id": "wod-1", "name": "Leg Swings", "reps": 15 },
+                { "id": "wod-2", "name": "Leg Circles", "reps": 20, "note": "20 each side" },
+                { "id": "wod-3", "name": "Squats", "reps": 10 },
+                { "id": "wod-4", "name": "Windshield Wiper Legs", "reps": 20 },
+                { "id": "wod-5", "name": "Reverse Tabletop", "reps": 10 },
+                { "id": "wod-6", "name": "Alternating Runner's Lunge", "reps": 5, "note": "5 each side" },
+                { "id": "wod-7", "name": "Surfer Squat", "reps": 10 },
+                { "id": "wod-8", "name": "Dumbbell Strict Press", "reps": 10, "weight": "8 lbs" },
+                { "id": "wod-9", "name": "Dumbbell Bicep Curl", "reps": 10, "weight": "8 lbs", "note": "10 each side" },
+                { "id": "wod-10", "name": "Dumbbell Tricep Overhead Push", "reps": 10, "weight": "8 lbs" },
+                { "id": "wod-11", "name": "Dumbbell Row", "reps": 10, "weight": "8 lbs", "note": "10 each side" }
+              ]
+            },
+            {
+              "type": "cashout",
+              "label": "Stretches",
+              "style": "stretch",
+              "movements": [
+                { "id": "co-1", "name": "Supine Figure Four", "note": "30 sec each side" },
+                { "id": "co-2", "name": "Inverted Figure Four", "note": "30 sec each side" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

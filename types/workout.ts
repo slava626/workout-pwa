@@ -1,4 +1,4 @@
-export type UserName = 'stone' | 'lightning' | 'ice';
+export type UserName = 'stone' | 'lightning' | 'ice' | 'genesis';
 
 export type SectionType = 'warmup' | 'wod' | 'cashout';
 export type CashoutStyle = 'emom' | 'e2mom' | 'e3mom' | 'amrap' | 'tabata' | 'stretch' | 'other';

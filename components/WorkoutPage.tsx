@@ -13,14 +13,11 @@ import { useTimer } from '@/hooks/useTimer';
 
 interface Props { user: string; }
 
-function todayStr() { return new Date().toISOString().split('T')[0]; }
-
-function nearestWorkoutDay(program: Program, from: string): string | null {
-  const allDates = program.weeks.flatMap((w) => w.days.map((d) => d.date)).sort();
-  if (allDates.includes(from)) return from;
-  const upcoming = allDates.find((d) => d >= from);
-  return upcoming ?? allDates[allDates.length - 1] ?? null;
+function todayStr() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
+
 
 const EMOM_STYLES = new Set(['emom', 'e2mom', 'e3mom']);
 
@@ -72,8 +69,6 @@ export default function WorkoutPage({ user }: Props) {
       .then((r) => { if (!r.ok) throw new Error(`No program found for ${user}`); return r.json() as Promise<Program>; })
       .then((p) => {
         setProgram(p);
-        const nearest = nearestWorkoutDay(p, todayStr());
-        if (nearest) setSelectedDate(nearest);
       })
       .catch((e) => setError(e.message));
   }, [user]);

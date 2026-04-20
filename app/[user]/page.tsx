@@ -6,6 +6,7 @@ export function generateStaticParams() {
     { user: 'stone' },
     { user: 'lightning' },
     { user: 'ice' },
+    { user: 'genesis' },
   ];
 }
 

@@ -4,6 +4,7 @@ const USERS = [
   { id: 'stone', label: 'Stone', sub: 'Strength & Power' },
   { id: 'lightning', label: 'Lightning', sub: 'Speed & Conditioning' },
   { id: 'ice', label: 'Ice', sub: 'Mobility & Stability' },
+  { id: 'genesis', label: 'Genesis', sub: 'Foundation & Movement' },
 ] as const;
 
 export default function Home() {
