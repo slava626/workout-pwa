@@ -8,6 +8,7 @@ export type ResultUnit = 'reps' | 'calories' | 'time' | 'lbs' | 'kg' | 'meters';
 export interface Movement {
   id: string;
   name: string;
+  media?: string;         // optional image/gif URL (e.g. /media/movements/back-squat.webp)
   sets?: number;
   reps?: number;
   weight?: string;

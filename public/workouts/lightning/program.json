@@ -15,24 +15,28 @@
                 {
                   "id": "wu-1",
                   "name": "Bike",
-                  "note": "3 min for distance"
+                  "note": "3 min for distance",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png/960px-FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png"
                 },
                 {
                   "id": "wu-2",
                   "name": "Row",
                   "reps": 20,
-                  "note": "20 cal, smooth"
+                  "note": "20 cal, smooth",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 },
                 {
                   "id": "wu-3",
                   "name": "Bike",
-                  "note": "3 min for distance, faster"
+                  "note": "3 min for distance, faster",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png/960px-FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png"
                 },
                 {
                   "id": "wu-4",
                   "name": "Row",
                   "reps": 20,
-                  "note": "20 cal, smooth"
+                  "note": "20 cal, smooth",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 }
               ]
             },
@@ -45,18 +49,21 @@
                   "name": "Barbell Bench Press",
                   "sets": 3,
                   "reps": 15,
-                  "weight": "light"
+                  "weight": "light",
+                  "media": "https://wger.de/media/exercise-images/192/Bench-press-1.png"
                 },
                 {
                   "id": "wod-2",
                   "name": "Incline Barbell Bench Press",
                   "sets": 3,
-                  "reps": 15
+                  "reps": 15,
+                  "media": "https://wger.de/media/exercise-images/1276/8900b22a-98b1-4cb7-975a-ed506c2d9a7c.png"
                 },
                 {
                   "id": "wod-3",
                   "name": "Plank Hold",
-                  "note": "1 min, try to stay up"
+                  "note": "1 min, try to stay up",
+                  "media": "/media/movements/plank.jpg"
                 }
               ]
             },
@@ -67,25 +74,29 @@
                 {
                   "id": "co-1",
                   "name": "Bike",
-                  "note": "3 min for distance, faster than first"
+                  "note": "3 min for distance, faster than first",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png/960px-FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png"
                 },
                 {
                   "id": "co-2",
                   "name": "Knee Push-Ups",
                   "reps": 10,
-                  "note": "smooth"
+                  "note": "smooth",
+                  "media": "https://wger.de/media/exercise-images/1551/a6a9e561-3965-45c6-9f2b-ee671e1a3a45.png"
                 },
                 {
                   "id": "co-3",
                   "name": "Row",
                   "reps": 20,
-                  "note": "20 cal, smooth"
+                  "note": "20 cal, smooth",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 },
                 {
                   "id": "co-4",
                   "name": "Knee Push-Ups",
                   "reps": 10,
-                  "note": "smooth"
+                  "note": "smooth",
+                  "media": "https://wger.de/media/exercise-images/1551/a6a9e561-3965-45c6-9f2b-ee671e1a3a45.png"
                 }
               ]
             }
@@ -103,37 +114,43 @@
                   "id": "wu-1",
                   "name": "Bike",
                   "reps": 25,
-                  "note": "25 cal, easy-moderate"
+                  "note": "25 cal, easy-moderate",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png/960px-FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png"
                 },
                 {
                   "id": "wu-2",
                   "name": "Row",
                   "reps": 25,
-                  "note": "25 cal, smooth"
+                  "note": "25 cal, smooth",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 },
                 {
                   "id": "wu-3",
                   "name": "Bike",
                   "reps": 10,
-                  "note": "10 cal, fast"
+                  "note": "10 cal, fast",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png/960px-FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png"
                 },
                 {
                   "id": "wu-4",
                   "name": "Row",
                   "reps": 10,
-                  "note": "10 cal, fast"
+                  "note": "10 cal, fast",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 },
                 {
                   "id": "wu-5",
                   "name": "Bike",
                   "reps": 25,
-                  "note": "25 cal, easy-moderate"
+                  "note": "25 cal, easy-moderate",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png/960px-FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png"
                 },
                 {
                   "id": "wu-6",
                   "name": "Row",
                   "reps": 25,
-                  "note": "25 cal, smooth"
+                  "note": "25 cal, smooth",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 }
               ]
             },
@@ -145,38 +162,45 @@
                   "id": "wod-1",
                   "name": "Sit-Ups",
                   "reps": 20,
-                  "note": "unbroken"
+                  "note": "unbroken",
+                  "media": "/media/movements/reverse-crunch.jpg"
                 },
                 {
                   "id": "wod-2",
                   "name": "Knee Push-Ups",
-                  "reps": 10
+                  "reps": 10,
+                  "media": "https://wger.de/media/exercise-images/1551/a6a9e561-3965-45c6-9f2b-ee671e1a3a45.png"
                 },
                 {
                   "id": "wod-3",
                   "name": "Sit-Ups",
-                  "reps": 20
+                  "reps": 20,
+                  "media": "/media/movements/reverse-crunch.jpg"
                 },
                 {
                   "id": "wod-4",
                   "name": "Dumbbell Overhead Press",
                   "reps": 12,
-                  "weight": "5 lbs"
+                  "weight": "5 lbs",
+                  "media": "https://wger.de/media/exercise-images/1337/981ec266-966e-4e16-8e9a-7b1c04979039.webp"
                 },
                 {
                   "id": "wod-5",
                   "name": "Sit-Ups",
-                  "reps": 20
+                  "reps": 20,
+                  "media": "/media/movements/reverse-crunch.jpg"
                 },
                 {
                   "id": "wod-6",
                   "name": "Knee Push-Ups",
-                  "reps": 12
+                  "reps": 12,
+                  "media": "https://wger.de/media/exercise-images/1551/a6a9e561-3965-45c6-9f2b-ee671e1a3a45.png"
                 },
                 {
                   "id": "wod-7",
                   "name": "Sit-Ups",
-                  "reps": 20
+                  "reps": 20,
+                  "media": "/media/movements/reverse-crunch.jpg"
                 }
               ]
             },
@@ -188,12 +212,14 @@
                   "id": "co-1",
                   "name": "Jump Rope Singles",
                   "reps": 40,
-                  "note": "easy rhythm"
+                  "note": "easy rhythm",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Ghanaian_kid_%28skipping_rope%29_01.jpg/960px-Ghanaian_kid_%28skipping_rope%29_01.jpg"
                 },
                 {
                   "id": "co-2",
                   "name": "Elbow Plank Hold",
-                  "note": "2 min, break as needed"
+                  "note": "2 min, break as needed",
+                  "media": "/media/movements/plank.jpg"
                 }
               ]
             }
@@ -210,12 +236,14 @@
                 {
                   "id": "wu-1",
                   "name": "Bike",
-                  "note": "7.5 minutes"
+                  "note": "7.5 minutes",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png/960px-FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png"
                 },
                 {
                   "id": "wu-2",
                   "name": "Row",
-                  "note": "7.5 minutes"
+                  "note": "7.5 minutes",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 }
               ]
             },
@@ -226,42 +254,50 @@
                 {
                   "id": "wod-1",
                   "name": "Step Ups",
-                  "reps": 10
+                  "reps": 10,
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Step-ups-1-801x1024.png"
                 },
                 {
                   "id": "wod-2",
                   "name": "Jumping Pull-Up",
-                  "reps": 10
+                  "reps": 10,
+                  "media": "https://wger.de/media/exercise-images/1765/7ac179ab-f1ca-4138-ad1a-3e0133272348.png"
                 },
                 {
                   "id": "wod-3",
                   "name": "Air Squats",
-                  "reps": 10
+                  "reps": 10,
+                  "media": "https://wger.de/media/exercise-images/1627/86d0b85a-66b7-4e5f-bf8d-bb4d7eb03f59.webp"
                 },
                 {
                   "id": "wod-4",
                   "name": "Jumping Pull-Up",
-                  "reps": 10
+                  "reps": 10,
+                  "media": "https://wger.de/media/exercise-images/1765/7ac179ab-f1ca-4138-ad1a-3e0133272348.png"
                 },
                 {
                   "id": "wod-5",
                   "name": "Step Ups",
-                  "reps": 10
+                  "reps": 10,
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Step-ups-1-801x1024.png"
                 },
                 {
                   "id": "wod-6",
                   "name": "Jumping Pull-Up",
-                  "reps": 10
+                  "reps": 10,
+                  "media": "https://wger.de/media/exercise-images/1765/7ac179ab-f1ca-4138-ad1a-3e0133272348.png"
                 },
                 {
                   "id": "wod-7",
                   "name": "Air Squats",
-                  "reps": 10
+                  "reps": 10,
+                  "media": "https://wger.de/media/exercise-images/1627/86d0b85a-66b7-4e5f-bf8d-bb4d7eb03f59.webp"
                 },
                 {
                   "id": "wod-8",
                   "name": "Jumping Pull-Up",
-                  "reps": 10
+                  "reps": 10,
+                  "media": "https://wger.de/media/exercise-images/1765/7ac179ab-f1ca-4138-ad1a-3e0133272348.png"
                 }
               ]
             },
@@ -272,13 +308,15 @@
                 {
                   "id": "co-1",
                   "name": "Jump Rope",
-                  "reps": 40
+                  "reps": 40,
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Ghanaian_kid_%28skipping_rope%29_01.jpg/960px-Ghanaian_kid_%28skipping_rope%29_01.jpg"
                 },
                 {
                   "id": "co-2",
                   "name": "Box Jumps",
                   "reps": 15,
-                  "note": "10\u201312 inch box"
+                  "note": "10\u201312 inch box",
+                  "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
                 }
               ]
             }
@@ -295,60 +333,71 @@
                 {
                   "id": "wu-1",
                   "name": "Treadmill",
-                  "note": "1 min, easy"
+                  "note": "1 min, easy",
+                  "media": "https://wger.de/media/exercise-images/1615/7792295c-83b6-4ea8-9353-ce02f0ad2559.jpg"
                 },
                 {
                   "id": "wu-2",
                   "name": "Row",
                   "reps": 35,
-                  "note": "35 cal, smooth"
+                  "note": "35 cal, smooth",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 },
                 {
                   "id": "wu-3",
                   "name": "Treadmill",
-                  "note": "1 min, easy"
+                  "note": "1 min, easy",
+                  "media": "https://wger.de/media/exercise-images/1615/7792295c-83b6-4ea8-9353-ce02f0ad2559.jpg"
                 },
                 {
                   "id": "wu-4",
                   "name": "Step-Back Lunges",
-                  "reps": 10
+                  "reps": 10,
+                  "media": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png"
                 },
                 {
                   "id": "wu-5",
                   "name": "Treadmill",
-                  "note": "1 min, easy"
+                  "note": "1 min, easy",
+                  "media": "https://wger.de/media/exercise-images/1615/7792295c-83b6-4ea8-9353-ce02f0ad2559.jpg"
                 },
                 {
                   "id": "wu-6",
                   "name": "Air Squats",
                   "reps": 10,
-                  "note": "controlled"
+                  "note": "controlled",
+                  "media": "https://wger.de/media/exercise-images/1627/86d0b85a-66b7-4e5f-bf8d-bb4d7eb03f59.webp"
                 },
                 {
                   "id": "wu-7",
                   "name": "Treadmill",
-                  "note": "1 min, easy"
+                  "note": "1 min, easy",
+                  "media": "https://wger.de/media/exercise-images/1615/7792295c-83b6-4ea8-9353-ce02f0ad2559.jpg"
                 },
                 {
                   "id": "wu-8",
                   "name": "Step-Back Lunges",
-                  "reps": 10
+                  "reps": 10,
+                  "media": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png"
                 },
                 {
                   "id": "wu-9",
                   "name": "Treadmill",
-                  "note": "1 min, easy"
+                  "note": "1 min, easy",
+                  "media": "https://wger.de/media/exercise-images/1615/7792295c-83b6-4ea8-9353-ce02f0ad2559.jpg"
                 },
                 {
                   "id": "wu-10",
                   "name": "Row",
                   "reps": 35,
-                  "note": "35 cal, smooth"
+                  "note": "35 cal, smooth",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 },
                 {
                   "id": "wu-11",
                   "name": "Treadmill",
-                  "note": "1 min, easy"
+                  "note": "1 min, easy",
+                  "media": "https://wger.de/media/exercise-images/1615/7792295c-83b6-4ea8-9353-ce02f0ad2559.jpg"
                 }
               ]
             },
@@ -359,12 +408,14 @@
                 {
                   "id": "co-1",
                   "name": "Leg Raise Hold",
-                  "note": "1 min"
+                  "note": "1 min",
+                  "media": "/media/movements/scissors.jpg"
                 },
                 {
                   "id": "co-2",
                   "name": "Plank Hold",
-                  "note": "2 min"
+                  "note": "2 min",
+                  "media": "/media/movements/plank.jpg"
                 }
               ]
             }
@@ -382,19 +433,22 @@
                   "id": "wu-1",
                   "name": "Bike",
                   "reps": 30,
-                  "note": "30 cal, easy"
+                  "note": "30 cal, easy",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png/960px-FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png"
                 },
                 {
                   "id": "wu-2",
                   "name": "Row",
                   "reps": 30,
-                  "note": "30 cal, smooth"
+                  "note": "30 cal, smooth",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 },
                 {
                   "id": "wu-3",
                   "name": "Ski",
                   "reps": 30,
-                  "note": "30 cal, steady"
+                  "note": "30 cal, steady",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/CrossFit_workout_on_SkiErg_DSC1807.jpg/960px-CrossFit_workout_on_SkiErg_DSC1807.jpg"
                 }
               ]
             },
@@ -407,28 +461,32 @@
                   "name": "Barbell Bench Press",
                   "sets": 3,
                   "reps": 20,
-                  "weight": "two 10 lb dumbbells"
+                  "weight": "two 10 lb dumbbells",
+                  "media": "https://wger.de/media/exercise-images/192/Bench-press-1.png"
                 },
                 {
                   "id": "wod-2",
                   "name": "Banded Pull-Ups",
                   "sets": 5,
                   "reps": 5,
-                  "note": "double green band"
+                  "note": "double green band",
+                  "media": "https://wger.de/media/exercise-images/1765/7ac179ab-f1ca-4138-ad1a-3e0133272348.png"
                 },
                 {
                   "id": "wod-3",
                   "name": "Barbell Curl",
                   "sets": 3,
                   "reps": 20,
-                  "weight": "10\u201315 lbs"
+                  "weight": "10\u201315 lbs",
+                  "media": "https://wger.de/media/exercise-images/74/Bicep-curls-1.png"
                 },
                 {
                   "id": "wod-4",
                   "name": "Ring Rows",
                   "sets": 3,
                   "reps": 15,
-                  "note": "easy, med, hard"
+                  "note": "easy, med, hard",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 }
               ]
             },
@@ -439,12 +497,14 @@
                 {
                   "id": "co-1",
                   "name": "Plank Hold",
-                  "note": "2 min, break as needed"
+                  "note": "2 min, break as needed",
+                  "media": "/media/movements/plank.jpg"
                 },
                 {
                   "id": "co-2",
                   "name": "Elevated Legs Plank Hold",
-                  "note": "2 min, break as needed"
+                  "note": "2 min, break as needed",
+                  "media": "/media/movements/plank.jpg"
                 }
               ]
             }
@@ -461,29 +521,34 @@
                 {
                   "id": "wu-1",
                   "name": "Jog",
-                  "note": "100m, very easy"
+                  "note": "100m, very easy",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Running_to_exercise.jpg/960px-Running_to_exercise.jpg"
                 },
                 {
                   "id": "wu-2",
                   "name": "Air Squats",
                   "reps": 5,
-                  "note": "smooth"
+                  "note": "smooth",
+                  "media": "https://wger.de/media/exercise-images/1627/86d0b85a-66b7-4e5f-bf8d-bb4d7eb03f59.webp"
                 },
                 {
                   "id": "wu-3",
                   "name": "Deep Squat Pause",
                   "reps": 5,
-                  "note": "controlled"
+                  "note": "controlled",
+                  "media": "https://wger.de/media/exercise-images/1627/86d0b85a-66b7-4e5f-bf8d-bb4d7eb03f59.webp"
                 },
                 {
                   "id": "wu-4",
                   "name": "Ankle Rocks",
-                  "reps": 10
+                  "reps": 10,
+                  "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
                 },
                 {
                   "id": "wu-5",
                   "name": "Hollow Hold",
-                  "note": "30s, scaled as needed"
+                  "note": "30s, scaled as needed",
+                  "media": "/media/movements/elbow-to-knee.jpg"
                 }
               ]
             },
@@ -497,18 +562,21 @@
                   "name": "Back Squat",
                   "reps": 20,
                   "weight": "35 lbs bar",
-                  "note": "light"
+                  "note": "light",
+                  "media": "https://wger.de/media/exercise-images/1627/86d0b85a-66b7-4e5f-bf8d-bb4d7eb03f59.webp"
                 },
                 {
                   "id": "wod-2",
                   "name": "Sit-Ups (AbMat)",
                   "reps": 40,
-                  "note": "smooth, no yank"
+                  "note": "smooth, no yank",
+                  "media": "/media/movements/reverse-crunch.jpg"
                 },
                 {
                   "id": "wod-3",
                   "name": "Run",
-                  "note": "80m with moderate DBs or KBs"
+                  "note": "80m with moderate DBs or KBs",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Running_to_exercise.jpg/960px-Running_to_exercise.jpg"
                 }
               ]
             },
@@ -519,42 +587,50 @@
                 {
                   "id": "co-1",
                   "name": "Standing Toe Touch",
-                  "note": "1 min, ragdoll hang"
+                  "note": "1 min, ragdoll hang",
+                  "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
                 },
                 {
                   "id": "co-2",
                   "name": "Deep Lunge Stretch",
-                  "note": "1 min each side"
+                  "note": "1 min each side",
+                  "media": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png"
                 },
                 {
                   "id": "co-3",
                   "name": "Standing Quad Stretch",
-                  "note": "1 min each side"
+                  "note": "1 min each side",
+                  "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
                 },
                 {
                   "id": "co-4",
                   "name": "Pigeon Pose",
-                  "note": "1 min each side"
+                  "note": "1 min each side",
+                  "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
                 },
                 {
                   "id": "co-5",
                   "name": "Child's Pose",
-                  "note": "1 min, arms extended"
+                  "note": "1 min, arms extended",
+                  "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
                 },
                 {
                   "id": "co-6",
                   "name": "Cross-Body Shoulder Stretch",
-                  "note": "1 min each side"
+                  "note": "1 min each side",
+                  "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
                 },
                 {
                   "id": "co-7",
                   "name": "Overhead Triceps Stretch",
-                  "note": "1 min each side"
+                  "note": "1 min each side",
+                  "media": "https://wger.de/media/exercise-images/1519/fab7f641-27d4-40b5-8edd-1a0a137bfd94.gif"
                 },
                 {
                   "id": "co-8",
                   "name": "Wrist Flexor/Extensor Stretch",
-                  "note": "1 min each side"
+                  "note": "1 min each side",
+                  "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
                 }
               ]
             }
@@ -576,24 +652,28 @@
                 {
                   "id": "wu-1",
                   "name": "Bike",
-                  "note": "3 min for distance"
+                  "note": "3 min for distance",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png/960px-FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png"
                 },
                 {
                   "id": "wu-2",
                   "name": "Row",
                   "reps": 20,
-                  "note": "20 cal, smooth"
+                  "note": "20 cal, smooth",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 },
                 {
                   "id": "wu-3",
                   "name": "Bike",
-                  "note": "3 min for distance, faster"
+                  "note": "3 min for distance, faster",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png/960px-FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png"
                 },
                 {
                   "id": "wu-4",
                   "name": "Row",
                   "reps": 20,
-                  "note": "20 cal, smooth"
+                  "note": "20 cal, smooth",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 }
               ]
             },
@@ -606,18 +686,21 @@
                   "name": "Barbell Bench Press",
                   "sets": 3,
                   "reps": 15,
-                  "weight": "light"
+                  "weight": "light",
+                  "media": "https://wger.de/media/exercise-images/192/Bench-press-1.png"
                 },
                 {
                   "id": "wod-2",
                   "name": "Incline Barbell Bench Press",
                   "sets": 3,
-                  "reps": 15
+                  "reps": 15,
+                  "media": "https://wger.de/media/exercise-images/1276/8900b22a-98b1-4cb7-975a-ed506c2d9a7c.png"
                 },
                 {
                   "id": "wod-3",
                   "name": "Plank Hold",
-                  "note": "1 min, try to stay up"
+                  "note": "1 min, try to stay up",
+                  "media": "/media/movements/plank.jpg"
                 }
               ]
             },
@@ -628,25 +711,29 @@
                 {
                   "id": "co-1",
                   "name": "Bike",
-                  "note": "3 min for distance, faster than first"
+                  "note": "3 min for distance, faster than first",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png/960px-FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png"
                 },
                 {
                   "id": "co-2",
                   "name": "Knee Push-Ups",
                   "reps": 10,
-                  "note": "smooth"
+                  "note": "smooth",
+                  "media": "https://wger.de/media/exercise-images/1551/a6a9e561-3965-45c6-9f2b-ee671e1a3a45.png"
                 },
                 {
                   "id": "co-3",
                   "name": "Row",
                   "reps": 20,
-                  "note": "20 cal, smooth"
+                  "note": "20 cal, smooth",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 },
                 {
                   "id": "co-4",
                   "name": "Knee Push-Ups",
                   "reps": 10,
-                  "note": "smooth"
+                  "note": "smooth",
+                  "media": "https://wger.de/media/exercise-images/1551/a6a9e561-3965-45c6-9f2b-ee671e1a3a45.png"
                 }
               ]
             }
@@ -664,37 +751,43 @@
                   "id": "wu-1",
                   "name": "Bike",
                   "reps": 25,
-                  "note": "25 cal, easy-moderate"
+                  "note": "25 cal, easy-moderate",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png/960px-FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png"
                 },
                 {
                   "id": "wu-2",
                   "name": "Row",
                   "reps": 25,
-                  "note": "25 cal, smooth"
+                  "note": "25 cal, smooth",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 },
                 {
                   "id": "wu-3",
                   "name": "Bike",
                   "reps": 10,
-                  "note": "10 cal, fast"
+                  "note": "10 cal, fast",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png/960px-FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png"
                 },
                 {
                   "id": "wu-4",
                   "name": "Row",
                   "reps": 10,
-                  "note": "10 cal, fast"
+                  "note": "10 cal, fast",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 },
                 {
                   "id": "wu-5",
                   "name": "Bike",
                   "reps": 25,
-                  "note": "25 cal, easy-moderate"
+                  "note": "25 cal, easy-moderate",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png/960px-FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png"
                 },
                 {
                   "id": "wu-6",
                   "name": "Row",
                   "reps": 25,
-                  "note": "25 cal, smooth"
+                  "note": "25 cal, smooth",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 }
               ]
             },
@@ -706,38 +799,45 @@
                   "id": "wod-1",
                   "name": "Sit-Ups",
                   "reps": 20,
-                  "note": "unbroken"
+                  "note": "unbroken",
+                  "media": "/media/movements/reverse-crunch.jpg"
                 },
                 {
                   "id": "wod-2",
                   "name": "Knee Push-Ups",
-                  "reps": 10
+                  "reps": 10,
+                  "media": "https://wger.de/media/exercise-images/1551/a6a9e561-3965-45c6-9f2b-ee671e1a3a45.png"
                 },
                 {
                   "id": "wod-3",
                   "name": "Sit-Ups",
-                  "reps": 20
+                  "reps": 20,
+                  "media": "/media/movements/reverse-crunch.jpg"
                 },
                 {
                   "id": "wod-4",
                   "name": "Dumbbell Overhead Press",
                   "reps": 12,
-                  "weight": "5 lbs"
+                  "weight": "5 lbs",
+                  "media": "https://wger.de/media/exercise-images/1337/981ec266-966e-4e16-8e9a-7b1c04979039.webp"
                 },
                 {
                   "id": "wod-5",
                   "name": "Sit-Ups",
-                  "reps": 20
+                  "reps": 20,
+                  "media": "/media/movements/reverse-crunch.jpg"
                 },
                 {
                   "id": "wod-6",
                   "name": "Knee Push-Ups",
-                  "reps": 12
+                  "reps": 12,
+                  "media": "https://wger.de/media/exercise-images/1551/a6a9e561-3965-45c6-9f2b-ee671e1a3a45.png"
                 },
                 {
                   "id": "wod-7",
                   "name": "Sit-Ups",
-                  "reps": 20
+                  "reps": 20,
+                  "media": "/media/movements/reverse-crunch.jpg"
                 }
               ]
             },
@@ -749,12 +849,14 @@
                   "id": "co-1",
                   "name": "Jump Rope Singles",
                   "reps": 40,
-                  "note": "easy rhythm"
+                  "note": "easy rhythm",
+                  "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Ghanaian_kid_%28skipping_rope%29_01.jpg/960px-Ghanaian_kid_%28skipping_rope%29_01.jpg"
                 },
                 {
                   "id": "co-2",
                   "name": "Elbow Plank Hold",
-                  "note": "2 min, break as needed"
+                  "note": "2 min, break as needed",
+                  "media": "/media/movements/plank.jpg"
                 }
               ]
             }

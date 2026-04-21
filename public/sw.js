@@ -1,10 +1,11 @@
-const CACHE = 'workout-v3';
+const CACHE = 'workout-v5';
 
 const PRECACHE = [
   '/',
   '/stone/',
   '/lightning/',
   '/ice/',
+  '/genesis/',
 ];
 
 self.addEventListener('install', (event) => {

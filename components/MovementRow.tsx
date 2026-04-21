@@ -2,10 +2,12 @@
 
 import { useState } from 'react';
 import { Movement } from '@/types/workout';
+import MovementMedia from './MovementMedia';
 
 interface Props {
   movement: Movement;
   rowId: string;
+  user: string;
   checked: boolean;
   note: string;
   result: string;
@@ -18,7 +20,7 @@ interface Props {
 const PRESETS = ['Too Easy', 'Too Hard', 'Reduced Load', 'Increased Reps', 'Skipped'];
 
 export default function MovementRow({
-  movement, rowId, checked, note, result, setLabel, onCheck, onNote, onResult,
+  movement, rowId, user, checked, note, result, setLabel, onCheck, onNote, onResult,
 }: Props) {
   const [notesOpen, setNotesOpen] = useState(false);
 
@@ -31,7 +33,7 @@ export default function MovementRow({
 
   return (
     <div>
-      <div className="flex items-center px-4 py-4 gap-4">
+      <div className="flex items-center px-4 py-4 gap-3">
         {/* Checkbox */}
         <button
           onClick={() => onCheck(rowId, !checked)}
@@ -49,6 +51,14 @@ export default function MovementRow({
             </svg>
           )}
         </button>
+
+        {/* Exercise image */}
+        <MovementMedia
+          key={`${user}:${movement.name}`}
+          user={user}
+          movementName={movement.name}
+          media={movement.media}
+        />
 
         {/* Movement info */}
         <div className={['flex-1 min-w-0', checked ? 'opacity-40' : ''].join(' ')}>

@@ -6,6 +6,7 @@ import MovementRow from './MovementRow';
 interface Props {
   section: Section;
   meta: string;
+  user: string;
   checks: Record<string, boolean>;
   notes: Record<string, string>;
   results: Record<string, string>;
@@ -33,7 +34,7 @@ function parseTotalMinutes(duration: string): number {
   return m ? parseInt(m[1]) : 0;
 }
 
-export default function SectionBlock({ section, meta, checks, notes, results, onCheck, onNote, onResult }: Props) {
+export default function SectionBlock({ section, meta, user, checks, notes, results, onCheck, onNote, onResult }: Props) {
   const headingColor = SECTION_COLORS[section.type] ?? 'text-gray-300';
   const isEmom = EMOM_STYLES.has(section.style ?? '');
 
@@ -66,6 +67,7 @@ export default function SectionBlock({ section, meta, checks, notes, results, on
                 key={rowId}
                 movement={movement}
                 rowId={rowId}
+                user={user}
                 checked={!!checks[rowId]}
                 note={notes[rowId] ?? ''}
                 result={results[rowId] ?? ''}
@@ -114,6 +116,7 @@ export default function SectionBlock({ section, meta, checks, notes, results, on
                         key={rowId}
                         movement={movement}
                         rowId={rowId}
+                        user={user}
                         checked={!!checks[rowId]}
                         note={notes[rowId] ?? ''}
                         result={results[rowId] ?? ''}
@@ -131,6 +134,7 @@ export default function SectionBlock({ section, meta, checks, notes, results, on
                     key={rowId}
                     movement={movement}
                     rowId={rowId}
+                    user={user}
                     checked={!!checks[rowId]}
                     note={notes[rowId] ?? ''}
                     result={results[rowId] ?? ''}

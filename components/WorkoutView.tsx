@@ -61,6 +61,7 @@ export default function WorkoutView({
             key={`${section.type}-${i}`}
             section={section}
             meta={meta}
+            user={user}
             checks={checks}
             notes={notes}
             results={results}
