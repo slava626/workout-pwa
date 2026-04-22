@@ -46,7 +46,7 @@ app/
 components/
   WorkoutPage.tsx     # Top-level state: checks, notes, results, timer, isEnded
   WorkoutView.tsx     # Shows date header, Start button, section blocks
-  SectionBlock.tsx    # Renders one section; expands sets + EMOM intervals
+  SectionBlock.tsx    # Renders one section; supports grouped sets, rounds, and EMOM intervals
   MovementRow.tsx     # Single checkable row (checkbox, thumbnail, name, details, notes, result)
   MovementMedia.tsx   # Per-movement image/gif thumbnail + upload/view/replace/delete modal
   TimerBar.tsx        # Big 7xl timer + Pause / Restart Timer / End Workout
@@ -66,7 +66,7 @@ types/
 
 public/
   manifest.json       # PWA manifest
-  sw.js               # Service worker (cache-first; currently CACHE = 'workout-v4')
+  sw.js               # Service worker (cache-first; currently CACHE = 'workout-v5')
   media/
     movements/        # Normalized local exercise thumbnails used by program.json
     movement/Work out / # Raw source screenshots dropped locally by user
@@ -106,8 +106,9 @@ specs/
             {
               "type": "wod",
               "label": "WOD",
+              "sets": 4,
               "movements": [
-                { "id": "wod-1", "name": "Back Squat", "media": "/media/movements/back-squat.jpg", "sets": 4, "reps": 5, "weight": "185 lbs", "trackResult": true, "unit": "lbs" }
+                { "id": "wod-1", "name": "Back Squat", "media": "/media/movements/back-squat.jpg", "reps": 5, "weight": "185 lbs", "trackResult": true, "unit": "lbs" }
               ]
             },
             {
@@ -143,13 +144,15 @@ Full format reference: `specs/workout-format.md`
 The app expands sections into individually checkable rows:
 
 - **`rounds: N`** on a section → repeats all movements N times (Round 1, Round 2…)
-- **`sets: N`** on a movement → expands into N rows (Set 1/4, Set 2/4…)
+- **`sets: N`** on a section → repeats the whole movement list as grouped sets (Set 1 = all movements, Set 2 = all movements…)
+- **`sets: N`** on a movement → total set count for that movement; in a grouped-set section it appears in each set up to N
+- **`rounds` + `sets` together** → nested groups (Round 1 → Set 1/2/3…, then Round 2 → Set 1/2/3…)
 - **EMOM** (`style: "emom"`, `duration: "8 min"`) → 8 individual rows (Minute 1…Minute 8), cycling through movements
 - **E2MOM** → `0:00–2:00`, `2:00–4:00`… etc.
 
 Row IDs in localStorage:
 - Normal: `{movement.id}-r{round}` (e.g. `wod-1-r1`)
-- Sets expanded: `{movement.id}-r{round}-s{set}` (e.g. `wod-1-r1-s3`)
+- Grouped sets: `{movement.id}-r{round}-s{set}` (e.g. `wod-1-r1-s3`)
 - EMOM: `{movement.id}-m{intervalNum}` (e.g. `co-1-m4`)
 
 Session stored in localStorage: `session:{user}:{date}` → `{ checks, notes, results }`
@@ -252,4 +255,5 @@ Then commit + push (or `npx vercel --prod` for a manual deploy).
 - **Media quality caveat** — some `movement.media` links are exact matches, others are category proxies. Review before presenting the app as fully curated.
 - **External dependency caveat** — many `movement.media` links are third-party public URLs. If remote availability, caching, or offline behavior matters, replace them with local assets under `public/media/movements/`.
 - **Raw image ingestion caveat** — `public/media/movement/Work out /` contains two HEIF files mislabeled as `.PNG`, which can break simple image tooling.
+- **Set-model caveat** — the app now supports grouped section sets via `section.sets`. Older JSON that only uses repeated `movement.sets` is still supported, but authoring new workouts should prefer `section.sets` when the whole movement list repeats together.
 - **Lint status** — full `npm run lint` still reports pre-existing `react-hooks/set-state-in-effect` errors in `components/CelebrationToast.tsx`, `components/WeekCalendar.tsx`, and `components/WorkoutPage.tsx`.

@@ -20,6 +20,7 @@ export interface Movement {
 export interface Section {
   type: SectionType;
   label: string;
+  sets?: number;
   rounds?: number;
   style?: CashoutStyle;
   duration?: string;

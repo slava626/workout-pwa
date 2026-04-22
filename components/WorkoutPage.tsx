@@ -26,6 +26,12 @@ function parseTotalMinutes(duration: string): number {
   return m ? parseInt(m[1]) : 0;
 }
 
+function getMovementSetCount(workoutSets: number | undefined, movementSets: number | undefined): number {
+  if (movementSets && movementSets > 1) return movementSets;
+  if (workoutSets && workoutSets > 1) return workoutSets;
+  return 1;
+}
+
 function getTotalRows(workout: WorkoutDay): number {
   return workout.sections.reduce((sum, s) => {
     // EMOM sections: each interval = 1 checkable row
@@ -36,7 +42,7 @@ function getTotalRows(workout: WorkoutDay): number {
     }
     // Normal sections: rounds × sum(sets per movement)
     const rounds = s.rounds && s.rounds > 1 ? s.rounds : 1;
-    return sum + rounds * s.movements.reduce((ms, m) => ms + (m.sets && m.sets > 1 ? m.sets : 1), 0);
+    return sum + rounds * s.movements.reduce((ms, m) => ms + getMovementSetCount(s.sets, m.sets), 0);
   }, 0);
 }
 

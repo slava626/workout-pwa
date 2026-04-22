@@ -69,13 +69,18 @@ public/workouts/genesis/program.json
 |-------|----------|-------|
 | `type` | yes | `"warmup"` \| `"wod"` \| `"cashout"` |
 | `label` | yes | Display name, e.g. `"Warm-Up"`, `"WOD"`, `"Cash-Out"`, `"Cool-Down"` |
+| `sets` | no | Integer ≥ 2 to repeat the whole movement list as grouped sets. |
 | `rounds` | no | Integer ≥ 2 to repeat the movement list. Omit (or use 1) for single pass. |
 | `style` | no | Only on cashout sections: `"emom"` \| `"e2mom"` \| `"e3mom"` \| `"amrap"` \| `"tabata"` \| `"stretch"` \| `"other"` |
 | `duration` | no | Free string shown in the UI, e.g. `"8 min"`, `"10 min AMRAP"` |
 
 **How `rounds` works in the app:** the app expands the movement list × rounds and creates a separate checkable row for each. E.g. `rounds: 3` with 4 movements = 12 checkable rows labeled Round 1 / Round 2 / Round 3.
 
-Use `rounds` at the **section level** when every movement repeats the same number of times. Use `sets` at the **movement level** when individual movements have their own set counts.
+**How `sets` works in the app:** the app groups movements by set, so `sets: 3` with 4 movements renders as Set 1 (all 4 movements), Set 2 (all 4 movements), Set 3 (all 4 movements).
+
+Use `rounds` when the whole section repeats as rounds. Use `sets` at the **section level** when the whole movement list repeats as grouped sets. Use `sets` at the **movement level** when individual movements need different total set counts inside that grouped-set layout.
+
+If a section has both `rounds` and `sets`, the UI renders nested groups: Round 1 → Set 1 / Set 2 / …, then Round 2 → Set 1 / Set 2 / …
 
 ---
 
@@ -100,12 +105,21 @@ Use `rounds` at the **section level** when every movement repeats the same numbe
 | `id` | string | yes | Unique within the day. Convention: `wu-1`, `wod-2`, `co-3` |
 | `name` | string | yes | Movement name as displayed |
 | `media` | string | no | Image/gif URL for thumbnail + modal preview. Prefer static files in `public/media/movements/` (example: `"/media/movements/back-squat.webp"`). |
-| `sets` | number | no | Number of sets (shown as "N sets") |
+| `sets` | number | no | Total number of sets for this movement. In grouped-set sections, it controls which set groups the movement appears in. |
 | `reps` | number | no | Number of reps (shown as "× N"). Must be a number — put non-numeric quantities in `note` |
 | `weight` | string | no | Load, e.g. `"135 lbs"`, `"35 lbs bar"`, `"bodyweight"` |
 | `note` | string | no | Extra detail shown in smaller italic text, e.g. `"odd minutes"`, `"1 min each side"`, `"30 cal"` |
 | `trackResult` | boolean | no | Shows a numeric input field so the athlete can log their result |
 | `unit` | string | no | Label next to the result input: `"reps"` \| `"calories"` \| `"time"` \| `"lbs"` \| `"kg"` \| `"meters"` |
+
+**Grouped-set example:** if a section has 3 movements and `section.sets: 4`, the UI renders:
+
+- Set 1: movement 1, movement 2, movement 3
+- Set 2: movement 1, movement 2, movement 3
+- Set 3: movement 1, movement 2, movement 3
+- Set 4: movement 1, movement 2, movement 3
+
+If one movement has `movement.sets: 5` while the others are 3, the later set groups only show the movement(s) whose total set count reaches that set number.
 
 **Media fallback order in app:** uploaded media override (IndexedDB) → `movement.media` URL from JSON → placeholder icon.
 
@@ -157,9 +171,10 @@ When a day repeats across weeks (e.g. same Monday workout in week 2), only the `
             {
               "type": "wod",
               "label": "WOD",
+              "sets": 4,
               "movements": [
-                { "id": "wod-1", "name": "Back Squat", "sets": 4, "reps": 5, "weight": "185 lbs", "trackResult": true, "unit": "lbs" },
-                { "id": "wod-2", "name": "Strict Pull-Ups", "sets": 3, "reps": 8 }
+                { "id": "wod-1", "name": "Back Squat", "reps": 5, "weight": "185 lbs", "trackResult": true, "unit": "lbs" },
+                { "id": "wod-2", "name": "Strict Pull-Ups", "reps": 8 }
               ]
             },
             {

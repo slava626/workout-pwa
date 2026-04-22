@@ -39,13 +39,13 @@
                 {
                   "id": "wu-5",
                   "name": "Empty Bar Power Cleans",
-                  "sets": 2,
                   "reps": 5,
                   "weight": "45 lbs",
                   "note": "build up in weight",
                   "media": "https://wger.de/media/exercise-images/1638/046c09b0-c35d-48d0-a552-39dd49f956d2.webp"
                 }
-              ]
+              ],
+              "sets": 2
             },
             {
               "type": "wod",
@@ -54,7 +54,6 @@
                 {
                   "id": "wod-1",
                   "name": "Power Cleans",
-                  "sets": 5,
                   "reps": 15,
                   "weight": "35 lbs",
                   "note": "rest 90 sec between sets",
@@ -62,7 +61,8 @@
                   "unit": "lbs",
                   "media": "https://wger.de/media/exercise-images/1638/046c09b0-c35d-48d0-a552-39dd49f956d2.webp"
                 }
-              ]
+              ],
+              "sets": 5
             },
             {
               "type": "wod",
@@ -173,7 +173,6 @@
                 {
                   "id": "wod-1",
                   "name": "Barbell Bench Press",
-                  "sets": 4,
                   "reps": 15,
                   "weight": "bar",
                   "media": "https://wger.de/media/exercise-images/192/Bench-press-1.png"
@@ -181,7 +180,6 @@
                 {
                   "id": "wod-2",
                   "name": "Incline Barbell Bench Press",
-                  "sets": 4,
                   "reps": 15,
                   "weight": "bar",
                   "media": "https://wger.de/media/exercise-images/1276/8900b22a-98b1-4cb7-975a-ed506c2d9a7c.png"
@@ -189,7 +187,6 @@
                 {
                   "id": "wod-3",
                   "name": "Seated Dumbbell Push Press",
-                  "sets": 4,
                   "reps": 15,
                   "weight": "15 lbs each",
                   "media": "https://wger.de/media/exercise-images/478/70a2d72c-a822-45f3-8de2-54ea85951b84.jpg"
@@ -197,12 +194,12 @@
                 {
                   "id": "wod-4",
                   "name": "Tricep Pushdown",
-                  "sets": 4,
                   "reps": 15,
                   "weight": "30 lbs",
                   "media": "https://wger.de/media/exercise-images/1185/c5ca283d-8958-4fd8-9d59-a3f52a3ac66b.jpg"
                 }
-              ]
+              ],
+              "sets": 4
             },
             {
               "type": "cashout",
@@ -245,7 +242,6 @@
                 {
                   "id": "wu-2",
                   "name": "PVC Good Mornings",
-                  "sets": 2,
                   "reps": 10,
                   "note": "full depth, controlled",
                   "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
@@ -253,7 +249,6 @@
                 {
                   "id": "wu-3",
                   "name": "Glute Bridges",
-                  "sets": 2,
                   "reps": 10,
                   "note": "light weight",
                   "media": "/media/movements/glute-bridge.jpg"
@@ -261,7 +256,6 @@
                 {
                   "id": "wu-4",
                   "name": "Snake Stretch",
-                  "sets": 2,
                   "reps": 10,
                   "note": "two light dumbbells",
                   "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
@@ -269,7 +263,6 @@
                 {
                   "id": "wu-5",
                   "name": "Ring Rows",
-                  "sets": 2,
                   "reps": 10,
                   "note": "neutral or supinated grip",
                   "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
@@ -280,7 +273,8 @@
                   "note": "30 seconds",
                   "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
                 }
-              ]
+              ],
+              "sets": 2
             },
             {
               "type": "wod",
@@ -289,7 +283,6 @@
                 {
                   "id": "wod-1",
                   "name": "Barbell Deadlift",
-                  "sets": 4,
                   "reps": 15,
                   "weight": "bar",
                   "media": "https://wger.de/media/exercise-images/184/1709c405-620a-4d07-9658-fade2b66a2df.jpeg"
@@ -297,7 +290,6 @@
                 {
                   "id": "wod-2",
                   "name": "One-Arm Dumbbell Row",
-                  "sets": 4,
                   "reps": 15,
                   "weight": "15 lbs",
                   "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
@@ -305,7 +297,6 @@
                 {
                   "id": "wod-3",
                   "name": "Ring Rows",
-                  "sets": 4,
                   "reps": 15,
                   "note": "increase angle each set",
                   "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
@@ -313,12 +304,12 @@
                 {
                   "id": "wod-4",
                   "name": "Alternating Dumbbell Curl",
-                  "sets": 4,
                   "reps": 15,
                   "weight": "10 lbs",
                   "media": "https://wger.de/media/exercise-images/1012/8270fdb8-28f1-4eff-b410-af8642085b3f.png"
                 }
-              ]
+              ],
+              "sets": 4
             },
             {
               "type": "cashout",
@@ -529,23 +520,20 @@
                 {
                   "id": "wod-1",
                   "name": "Kettlebell Swing / RDL",
-                  "sets": 4,
                   "reps": 20,
-                  "weight": "26\u201345 lbs",
+                  "weight": "26–45 lbs",
                   "media": "https://wger.de/media/exercise-images/184/1709c405-620a-4d07-9658-fade2b66a2df.jpeg"
                 },
                 {
                   "id": "wod-2",
                   "name": "Goblet Squat",
-                  "sets": 4,
                   "reps": 20,
-                  "weight": "12\u201318 lbs",
+                  "weight": "12–18 lbs",
                   "media": "https://wger.de/media/exercise-images/203/1c052351-2af0-4227-aeb0-244008e4b0a8.jpeg"
                 },
                 {
                   "id": "wod-3",
                   "name": "Step-Ups",
-                  "sets": 4,
                   "reps": 15,
                   "note": "18\" box",
                   "media": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Step-ups-1-801x1024.png"
@@ -556,7 +544,8 @@
                   "note": "2 minutes",
                   "media": "/media/movements/scissors.jpg"
                 }
-              ]
+              ],
+              "sets": 4
             },
             {
               "type": "cashout",
@@ -613,14 +602,12 @@
                 {
                   "id": "wu-1",
                   "name": "Easy Row or Bike",
-                  "sets": 2,
                   "note": "45 sec each, light pace",
                   "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png/960px-FitBol_Air_Bike_-_High-Intensity_Indoor_Cycling_Workout_Equipment.png"
                 },
                 {
                   "id": "wu-2",
                   "name": "Arm Swings",
-                  "sets": 2,
                   "reps": 10,
                   "note": "forward and backward",
                   "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
@@ -628,7 +615,6 @@
                 {
                   "id": "wu-3",
                   "name": "PVC or Empty-Bar Bench Press",
-                  "sets": 2,
                   "reps": 10,
                   "note": "close grip",
                   "media": "https://wger.de/media/exercise-images/192/Bench-press-1.png"
@@ -636,7 +622,6 @@
                 {
                   "id": "wu-4",
                   "name": "Banded Pull-Aparts",
-                  "sets": 2,
                   "reps": 15,
                   "note": "palms down",
                   "media": "https://wger.de/media/exercise-images/1732/d13b9adb-968e-4f73-95e6-b16690bcf616.jpg"
@@ -644,7 +629,6 @@
                 {
                   "id": "wu-5",
                   "name": "Scapular Pull-Ups or Banded Pulldowns",
-                  "sets": 2,
                   "reps": 10,
                   "note": "controlled",
                   "media": "https://wger.de/media/exercise-images/1765/7ac179ab-f1ca-4138-ad1a-3e0133272348.png"
@@ -652,12 +636,12 @@
                 {
                   "id": "wu-6",
                   "name": "Ring Rows",
-                  "sets": 2,
                   "reps": 10,
                   "note": "easy angle",
                   "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
                 }
-              ]
+              ],
+              "sets": 2
             },
             {
               "type": "wod",
@@ -666,7 +650,6 @@
                 {
                   "id": "wod-1",
                   "name": "Close-Grip Bench Press",
-                  "sets": 4,
                   "reps": 15,
                   "weight": "55 lbs",
                   "media": "https://wger.de/media/exercise-images/1897/9abec4e4-90ba-44f9-9e6e-5e35f7273078.png"
@@ -674,7 +657,6 @@
                 {
                   "id": "wod-2",
                   "name": "Jumping High Pull-Ups",
-                  "sets": 4,
                   "reps": 10,
                   "note": "chin over bar",
                   "media": "https://wger.de/media/exercise-images/1765/7ac179ab-f1ca-4138-ad1a-3e0133272348.png"
@@ -682,20 +664,19 @@
                 {
                   "id": "wod-3",
                   "name": "Barbell Curl",
-                  "sets": 4,
                   "reps": 15,
-                  "weight": "35\u201345 lbs",
+                  "weight": "35–45 lbs",
                   "media": "https://wger.de/media/exercise-images/74/Bicep-curls-1.png"
                 },
                 {
                   "id": "wod-4",
                   "name": "Scap Pull-Ups",
-                  "sets": 4,
                   "reps": 10,
                   "note": "hang full time",
                   "media": "https://wger.de/media/exercise-images/1765/7ac179ab-f1ca-4138-ad1a-3e0133272348.png"
                 }
-              ]
+              ],
+              "sets": 4
             },
             {
               "type": "cashout",
@@ -704,7 +685,7 @@
                 {
                   "id": "co-1",
                   "name": "Easy Run",
-                  "note": "5\u20138 min, conversational pace",
+                  "note": "5–8 min, conversational pace",
                   "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Running_to_exercise.jpg/960px-Running_to_exercise.jpg"
                 },
                 {
@@ -904,7 +885,6 @@
                 {
                   "id": "wod-1",
                   "name": "Barbell Bench Press",
-                  "sets": 4,
                   "reps": 15,
                   "weight": "bar",
                   "media": "https://wger.de/media/exercise-images/192/Bench-press-1.png"
@@ -912,7 +892,6 @@
                 {
                   "id": "wod-2",
                   "name": "Incline Barbell Bench Press",
-                  "sets": 4,
                   "reps": 15,
                   "weight": "bar",
                   "media": "https://wger.de/media/exercise-images/1276/8900b22a-98b1-4cb7-975a-ed506c2d9a7c.png"
@@ -920,7 +899,6 @@
                 {
                   "id": "wod-3",
                   "name": "Seated Dumbbell Push Press",
-                  "sets": 4,
                   "reps": 15,
                   "weight": "15 lbs each",
                   "media": "https://wger.de/media/exercise-images/478/70a2d72c-a822-45f3-8de2-54ea85951b84.jpg"
@@ -928,12 +906,12 @@
                 {
                   "id": "wod-4",
                   "name": "Tricep Pushdown",
-                  "sets": 4,
                   "reps": 15,
                   "weight": "30 lbs",
                   "media": "https://wger.de/media/exercise-images/1185/c5ca283d-8958-4fd8-9d59-a3f52a3ac66b.jpg"
                 }
-              ]
+              ],
+              "sets": 4
             },
             {
               "type": "cashout",
@@ -976,7 +954,6 @@
                 {
                   "id": "wu-2",
                   "name": "PVC Good Mornings",
-                  "sets": 2,
                   "reps": 10,
                   "note": "full depth, controlled",
                   "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
@@ -984,7 +961,6 @@
                 {
                   "id": "wu-3",
                   "name": "Glute Bridges",
-                  "sets": 2,
                   "reps": 10,
                   "note": "light weight",
                   "media": "/media/movements/glute-bridge.jpg"
@@ -992,7 +968,6 @@
                 {
                   "id": "wu-4",
                   "name": "Snake Stretch",
-                  "sets": 2,
                   "reps": 10,
                   "note": "two light dumbbells",
                   "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
@@ -1000,7 +975,6 @@
                 {
                   "id": "wu-5",
                   "name": "Ring Rows",
-                  "sets": 2,
                   "reps": 10,
                   "note": "neutral or supinated grip",
                   "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
@@ -1011,7 +985,8 @@
                   "note": "30 seconds",
                   "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
                 }
-              ]
+              ],
+              "sets": 2
             },
             {
               "type": "wod",
@@ -1020,7 +995,6 @@
                 {
                   "id": "wod-1",
                   "name": "Barbell Deadlift",
-                  "sets": 4,
                   "reps": 15,
                   "weight": "bar",
                   "media": "https://wger.de/media/exercise-images/184/1709c405-620a-4d07-9658-fade2b66a2df.jpeg"
@@ -1028,7 +1002,6 @@
                 {
                   "id": "wod-2",
                   "name": "One-Arm Dumbbell Row",
-                  "sets": 4,
                   "reps": 15,
                   "weight": "15 lbs",
                   "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
@@ -1036,7 +1009,6 @@
                 {
                   "id": "wod-3",
                   "name": "Ring Rows",
-                  "sets": 4,
                   "reps": 15,
                   "note": "increase angle each set",
                   "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
@@ -1044,12 +1016,12 @@
                 {
                   "id": "wod-4",
                   "name": "Alternating Dumbbell Curl",
-                  "sets": 4,
                   "reps": 15,
                   "weight": "10 lbs",
                   "media": "https://wger.de/media/exercise-images/1012/8270fdb8-28f1-4eff-b410-af8642085b3f.png"
                 }
-              ]
+              ],
+              "sets": 4
             },
             {
               "type": "cashout",

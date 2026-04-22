@@ -25,6 +25,11 @@ function parseTotalMinutes(duration: string): number {
   return m ? parseInt(m[1]) : 0;
 }
 
+function getSectionSetCount(section: WorkoutDay['sections'][number]): number {
+  if (section.sets && section.sets > 1) return section.sets;
+  return section.movements.reduce((max, movement) => Math.max(max, movement.sets && movement.sets > 1 ? movement.sets : 1), 1);
+}
+
 export default function WorkoutRecap({ workout, elapsed, checks, notes, results, user }: Props) {
   const dateLabel = new Date(workout.date + 'T00:00:00').toLocaleDateString('en-US', {
     weekday: 'long', month: 'long', day: 'numeric',
@@ -78,20 +83,42 @@ export default function WorkoutRecap({ workout, elapsed, checks, notes, results,
           }
         } else {
           const rounds = section.rounds && section.rounds > 1 ? section.rounds : 1;
+          const sectionSets = getSectionSetCount(section);
+          const useSetGroups = sectionSets > 1;
           for (let r = 1; r <= rounds; r++) {
-            for (const mv of section.movements) {
-              const sets = mv.sets && mv.sets > 1 ? mv.sets : 1;
-              for (let s = 1; s <= sets; s++) {
-                const rowId = sets > 1 ? `${mv.id}-r${r}-s${s}` : `${mv.id}-r${r}`;
-                const note = notes[rowId] ?? '';
-                const result = results[rowId] ?? '';
-                const label = [
-                  rounds > 1 ? `R${r}` : null,
-                  sets > 1 ? `S${s}` : null,
-                  mv.name,
-                ].filter(Boolean).join(' · ');
-                if (note || result || (rounds > 1 && s === 1) || sets > 1) {
-                  rows.push({ name: label, note, result });
+            if (useSetGroups) {
+              for (let s = 1; s <= sectionSets; s++) {
+                for (const mv of section.movements) {
+                  const sets = mv.sets && mv.sets > 1 ? mv.sets : sectionSets;
+                  if (sets < s) continue;
+                  const rowId = `${mv.id}-r${r}-s${s}`;
+                  const note = notes[rowId] ?? '';
+                  const result = results[rowId] ?? '';
+                  const label = [
+                    rounds > 1 ? `R${r}` : null,
+                    `S${s}`,
+                    mv.name,
+                  ].filter(Boolean).join(' · ');
+                  if (note || result || sectionSets > 1) {
+                    rows.push({ name: label, note, result });
+                  }
+                }
+              }
+            } else {
+              for (const mv of section.movements) {
+                const sets = mv.sets && mv.sets > 1 ? mv.sets : 1;
+                for (let s = 1; s <= sets; s++) {
+                  const rowId = sets > 1 ? `${mv.id}-r${r}-s${s}` : `${mv.id}-r${r}`;
+                  const note = notes[rowId] ?? '';
+                  const result = results[rowId] ?? '';
+                  const label = [
+                    rounds > 1 ? `R${r}` : null,
+                    sets > 1 ? `S${s}` : null,
+                    mv.name,
+                  ].filter(Boolean).join(' · ');
+                  if (note || result || (rounds > 1 && s === 1) || sets > 1) {
+                    rows.push({ name: label, note, result });
+                  }
                 }
               }
             }

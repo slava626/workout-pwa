@@ -47,7 +47,6 @@
                 {
                   "id": "wod-1",
                   "name": "Barbell Bench Press",
-                  "sets": 3,
                   "reps": 15,
                   "weight": "light",
                   "media": "https://wger.de/media/exercise-images/192/Bench-press-1.png"
@@ -55,7 +54,6 @@
                 {
                   "id": "wod-2",
                   "name": "Incline Barbell Bench Press",
-                  "sets": 3,
                   "reps": 15,
                   "media": "https://wger.de/media/exercise-images/1276/8900b22a-98b1-4cb7-975a-ed506c2d9a7c.png"
                 },
@@ -65,7 +63,8 @@
                   "note": "1 min, try to stay up",
                   "media": "/media/movements/plank.jpg"
                 }
-              ]
+              ],
+              "sets": 3
             },
             {
               "type": "cashout",
@@ -315,7 +314,7 @@
                   "id": "co-2",
                   "name": "Box Jumps",
                   "reps": 15,
-                  "note": "10\u201312 inch box",
+                  "note": "10–12 inch box",
                   "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
                 }
               ]
@@ -477,7 +476,7 @@
                   "name": "Barbell Curl",
                   "sets": 3,
                   "reps": 20,
-                  "weight": "10\u201315 lbs",
+                  "weight": "10–15 lbs",
                   "media": "https://wger.de/media/exercise-images/74/Bicep-curls-1.png"
                 },
                 {
@@ -684,7 +683,6 @@
                 {
                   "id": "wod-1",
                   "name": "Barbell Bench Press",
-                  "sets": 3,
                   "reps": 15,
                   "weight": "light",
                   "media": "https://wger.de/media/exercise-images/192/Bench-press-1.png"
@@ -692,7 +690,6 @@
                 {
                   "id": "wod-2",
                   "name": "Incline Barbell Bench Press",
-                  "sets": 3,
                   "reps": 15,
                   "media": "https://wger.de/media/exercise-images/1276/8900b22a-98b1-4cb7-975a-ed506c2d9a7c.png"
                 },
@@ -702,7 +699,8 @@
                   "note": "1 min, try to stay up",
                   "media": "/media/movements/plank.jpg"
                 }
-              ]
+              ],
+              "sets": 3
             },
             {
               "type": "cashout",
