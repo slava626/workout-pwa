@@ -13,6 +13,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - There is also a raw source drop folder at `public/media/movement/Work out /` containing original screenshots, including two HEIF files mislabeled as `.PNG`.
 - All current workout rows have a `media` value, but many of those values are external public URLs. If reliability/offline support matters, move those to local assets in `public/media/movements/` and update the JSON.
 - Some movements currently use "closest category" images rather than exact exercise matches where a strong public match was not available. Review before treating the media set as final.
+- Profile display mapping: the user-facing label for `stone` is now `Sandstorm`, but the underlying route/data key remains `stone`.
 - Grouped-set behavior: use `section.sets` when the whole movement list repeats together (Set 1 = all movements, then Set 2 = all movements, etc.). `movement.sets` still works and now means the total number of set groups that movement should appear in. If a section has both `rounds` and `sets`, the UI nests sets inside each round.
 - Interval archetypes:
   - EMOM / E2MOM / E3MOM use `style` + `duration` and cycle through movements by interval.

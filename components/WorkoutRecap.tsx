@@ -1,8 +1,10 @@
 'use client';
 
+import ProfileIcon from './ProfileIcon';
 import { WorkoutDay } from '@/types/workout';
 import { formatElapsed } from '@/hooks/useTimer';
 import { EMOM_STYLES, HIIT_STYLE, getEmomIntervals, getHiitIntervals } from '@/lib/sectionTiming';
+import { getProfileMeta } from '@/lib/profiles';
 
 interface Props {
   workout: WorkoutDay;
@@ -25,6 +27,7 @@ function getSectionSetCount(section: WorkoutDay['sections'][number]): number {
 }
 
 export default function WorkoutRecap({ workout, elapsed, checks, notes, results, user }: Props) {
+  const profile = getProfileMeta(user);
   const dateLabel = new Date(workout.date + 'T00:00:00').toLocaleDateString('en-US', {
     weekday: 'long', month: 'long', day: 'numeric',
   });
@@ -37,7 +40,10 @@ export default function WorkoutRecap({ workout, elapsed, checks, notes, results,
       <div className="text-center py-4">
         <div className="text-5xl mb-3">🏆</div>
         <h2 className="text-white text-2xl font-bold">Workout Complete!</h2>
-        <p className="text-gray-400 text-sm mt-1 capitalize">{user} · {dateLabel}</p>
+        <div className="mt-2 flex items-center justify-center gap-2 text-gray-400 text-sm">
+          <ProfileIcon user={profile.id} className="w-4 h-4" />
+          <p>{profile.label} · {dateLabel}</p>
+        </div>
       </div>
 
       {/* Stats row */}

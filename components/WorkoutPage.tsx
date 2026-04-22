@@ -9,8 +9,10 @@ import WorkoutRecap from './WorkoutRecap';
 import TimerBar from './TimerBar';
 import ProgressBar from './ProgressBar';
 import CelebrationToast from './CelebrationToast';
+import ProfileIcon from './ProfileIcon';
 import { useTimer } from '@/hooks/useTimer';
 import { EMOM_STYLES, HIIT_STYLE, getEmomIntervals, getHiitIntervals } from '@/lib/sectionTiming';
+import { getProfileMeta } from '@/lib/profiles';
 
 interface Props { user: string; }
 
@@ -52,6 +54,7 @@ function saveSession(key: string, data: object) {
 }
 
 export default function WorkoutPage({ user }: Props) {
+  const profile = getProfileMeta(user);
   const [program, setProgram] = useState<Program | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [selectedDate, setSelectedDate] = useState<string>(todayStr());
@@ -183,7 +186,10 @@ export default function WorkoutPage({ user }: Props) {
       {/* Header — always visible */}
       <header className="flex items-center justify-between px-4 pt-4 pb-3 border-b border-gray-800 flex-shrink-0">
         <Link href="/" className="text-gray-400 text-sm active:text-white transition-colors">← Back</Link>
-        <h1 className="text-white font-semibold capitalize">{user}</h1>
+        <div className="flex items-center gap-2 text-white">
+          <ProfileIcon user={profile.id} className="w-5 h-5" />
+          <h1 className="font-semibold">{profile.label}</h1>
+        </div>
         <div className="w-10" />
       </header>
 

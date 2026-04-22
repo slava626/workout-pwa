@@ -14,7 +14,7 @@ A personal fitness PWA for iPhone/iPad. Four user profiles (Stone, Lightning, Ic
 
 | Handle | Real name | Profile |
 |--------|-----------|---------|
-| `stone` | Levi | Older/stronger — Push/Pull/Upper/Legs splits |
+| `stone` | Levi | Displayed as **Sandstorm** in the UI — Older/stronger, Push/Pull/Upper/Legs splits |
 | `lightning` | Isaac | Younger/lighter — cardio-focused beginner workouts |
 | `ice` | — | Same program as Lightning |
 | `genesis` | — | Foundation & Movement |
@@ -44,6 +44,7 @@ app/
   globals.css         # Safe-area insets + @keyframes celebrate / confetti-fall
 
 components/
+  ProfileIcon.tsx     # SVG icons for Sandstorm / Lightning / Ice / Genesis
   WorkoutPage.tsx     # Top-level state: checks, notes, results, timer, isEnded
   WorkoutView.tsx     # Shows date header, Start button, section blocks
   SectionBlock.tsx    # Renders one section; supports grouped sets, rounds, EMOM, and HIIT intervals
@@ -61,6 +62,7 @@ hooks/
 
 lib/
   movementMedia.ts    # IndexedDB helpers (get/put/delete blob) keyed by {user}:{lowercased movement name}
+  profiles.ts         # Display labels/subtitles for profile IDs (`stone` -> `Sandstorm`)
   sectionTiming.ts    # Shared EMOM / HIIT interval math for view, progress, and recap
 
 types/
@@ -275,6 +277,7 @@ Then commit + push (or `npx vercel --prod` for a manual deploy).
 - **Static export** — no server-side code allowed. All data fetched client-side via `fetch('/workouts/...')`.
 - **Wake lock** — acquired when timer starts, released on pause, re-acquired on `visibilitychange` (iOS backgrounding).
 - **Ice's "Me" sheet** was empty in the Excel — Ice was set to the same program as Lightning.
+- **Profile display mapping** — the route/data key is still `stone`, but the UI label is now `Sandstorm`. Do not rename the underlying JSON folder or route unless you want to migrate URLs, localStorage keys, and static params too.
 - **Media quality caveat** — some `movement.media` links are exact matches, others are category proxies. Review before presenting the app as fully curated.
 - **External dependency caveat** — many `movement.media` links are third-party public URLs. If remote availability, caching, or offline behavior matters, replace them with local assets under `public/media/movements/`.
 - **Raw image ingestion caveat** — `public/media/movement/Work out /` contains two HEIF files mislabeled as `.PNG`, which can break simple image tooling.
