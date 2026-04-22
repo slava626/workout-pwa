@@ -1,7 +1,7 @@
 export type UserName = 'stone' | 'lightning' | 'ice' | 'genesis';
 
 export type SectionType = 'warmup' | 'wod' | 'cashout';
-export type CashoutStyle = 'emom' | 'e2mom' | 'e3mom' | 'amrap' | 'tabata' | 'stretch' | 'other';
+export type CashoutStyle = 'emom' | 'e2mom' | 'e3mom' | 'hiit' | 'amrap' | 'tabata' | 'stretch' | 'other';
 export type DayOfWeek = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
 export type ResultUnit = 'reps' | 'calories' | 'time' | 'lbs' | 'kg' | 'meters';
 
@@ -24,6 +24,9 @@ export interface Section {
   rounds?: number;
   style?: CashoutStyle;
   duration?: string;
+  countdown?: number;
+  work?: number;
+  rest?: number;
   movements: Movement[];
 }
 

@@ -5,6 +5,95 @@
       "week": 1,
       "days": [
         {
+          "day": "Friday",
+          "date": "2026-04-17",
+          "sections": [
+            {
+              "type": "warmup",
+              "label": "Warm-Up",
+              "rounds": 2,
+              "movements": [
+                {
+                  "id": "wu-1",
+                  "name": "Easy Row",
+                  "note": "1 min, conversational pace",
+                  "media": "https://wger.de/media/exercise-images/959/53a5e008-bc31-4ee0-9463-69a858c2ec18.png"
+                },
+                {
+                  "id": "wu-2",
+                  "name": "Air Squats",
+                  "reps": 10,
+                  "media": "https://wger.de/media/exercise-images/1627/86d0b85a-66b7-4e5f-bf8d-bb4d7eb03f59.webp"
+                },
+                {
+                  "id": "wu-3",
+                  "name": "Arm Circles",
+                  "reps": 10,
+                  "note": "forward and backward",
+                  "media": "https://wger.de/media/exercise-images/1861/0ffe4e99-71ad-47fb-b98c-1f243faa0499.png"
+                },
+                {
+                  "id": "wu-4",
+                  "name": "Bird Dog",
+                  "reps": 6,
+                  "note": "each side",
+                  "media": "/media/movements/bird-dog.jpg"
+                }
+              ]
+            },
+            {
+              "type": "cashout",
+              "label": "HIIT Test",
+              "style": "hiit",
+              "rounds": 3,
+              "countdown": 10,
+              "work": 30,
+              "rest": 15,
+              "movements": [
+                {
+                  "id": "co-1",
+                  "name": "Air Squats",
+                  "trackResult": true,
+                  "unit": "reps",
+                  "media": "https://wger.de/media/exercise-images/1627/86d0b85a-66b7-4e5f-bf8d-bb4d7eb03f59.webp"
+                },
+                {
+                  "id": "co-2",
+                  "name": "Knee Push-Ups",
+                  "trackResult": true,
+                  "unit": "reps",
+                  "media": "https://wger.de/media/exercise-images/1551/a6a9e561-3965-45c6-9f2b-ee671e1a3a45.png"
+                },
+                {
+                  "id": "co-3",
+                  "name": "Sit-Ups (AbMat)",
+                  "trackResult": true,
+                  "unit": "reps",
+                  "media": "/media/movements/reverse-crunch.jpg"
+                }
+              ]
+            },
+            {
+              "type": "cashout",
+              "label": "Cool-Down",
+              "movements": [
+                {
+                  "id": "co-4",
+                  "name": "Supine Figure Four",
+                  "note": "45 sec each side",
+                  "media": "/media/movements/supine-figure-four.jpg"
+                },
+                {
+                  "id": "co-5",
+                  "name": "Cat-Cow Stretch",
+                  "note": "60 sec, easy pace",
+                  "media": "/media/movements/cat-cow-stretch.jpg"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "day": "Sunday",
           "date": "2026-04-19",
           "sections": [

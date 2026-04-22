@@ -10,20 +10,13 @@ import TimerBar from './TimerBar';
 import ProgressBar from './ProgressBar';
 import CelebrationToast from './CelebrationToast';
 import { useTimer } from '@/hooks/useTimer';
+import { EMOM_STYLES, HIIT_STYLE, getEmomIntervals, getHiitIntervals } from '@/lib/sectionTiming';
 
 interface Props { user: string; }
 
 function todayStr() {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-}
-
-
-const EMOM_STYLES = new Set(['emom', 'e2mom', 'e3mom']);
-
-function parseTotalMinutes(duration: string): number {
-  const m = duration.match(/(\d+)/);
-  return m ? parseInt(m[1]) : 0;
 }
 
 function getMovementSetCount(workoutSets: number | undefined, movementSets: number | undefined): number {
@@ -36,9 +29,10 @@ function getTotalRows(workout: WorkoutDay): number {
   return workout.sections.reduce((sum, s) => {
     // EMOM sections: each interval = 1 checkable row
     if (EMOM_STYLES.has(s.style ?? '') && s.duration) {
-      const totalMin = parseTotalMinutes(s.duration);
-      const everyN = s.style === 'e2mom' ? 2 : s.style === 'e3mom' ? 3 : 1;
-      return sum + Math.floor(totalMin / everyN);
+      return sum + getEmomIntervals(s).length;
+    }
+    if (s.style === HIIT_STYLE) {
+      return sum + getHiitIntervals(s).length;
     }
     // Normal sections: rounds × sum(sets per movement)
     const rounds = s.rounds && s.rounds > 1 ? s.rounds : 1;

@@ -14,3 +14,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - All current workout rows have a `media` value, but many of those values are external public URLs. If reliability/offline support matters, move those to local assets in `public/media/movements/` and update the JSON.
 - Some movements currently use "closest category" images rather than exact exercise matches where a strong public match was not available. Review before treating the media set as final.
 - Grouped-set behavior: use `section.sets` when the whole movement list repeats together (Set 1 = all movements, then Set 2 = all movements, etc.). `movement.sets` still works and now means the total number of set groups that movement should appear in. If a section has both `rounds` and `sets`, the UI nests sets inside each round.
+- Interval archetypes:
+  - EMOM / E2MOM / E3MOM use `style` + `duration` and cycle through movements by interval.
+  - HIIT uses `style: "hiit"` with `countdown`, `work`, `rest`, and `rounds`; it runs a prep countdown, work timer, rest timer, and one checkable row per work interval. The HIIT coach is currently section-local and starts after the main workout has started.
+- Future-facing product ideas are tracked in `specs/future-enhancements.md`.
+- Preferred future path for movement/image persistence: keep workouts static, add a shared movement catalog first (`movements.json` or similar), and only introduce a hosted DB if editing, sync, or cloud media requirements become real.

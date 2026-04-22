@@ -56,11 +56,13 @@ public/workouts/genesis/program.json
 
 ```json
 {
-  "type": "warmup",
-  "label": "Warm-Up",
+  "type": "cashout",
+  "label": "HIIT Finisher",
   "rounds": 3,
-  "style": "emom",
-  "duration": "8 min",
+  "style": "hiit",
+  "countdown": 10,
+  "work": 40,
+  "rest": 20,
   "movements": [ ...Movement ]
 }
 ```
@@ -71,8 +73,11 @@ public/workouts/genesis/program.json
 | `label` | yes | Display name, e.g. `"Warm-Up"`, `"WOD"`, `"Cash-Out"`, `"Cool-Down"` |
 | `sets` | no | Integer ≥ 2 to repeat the whole movement list as grouped sets. |
 | `rounds` | no | Integer ≥ 2 to repeat the movement list. Omit (or use 1) for single pass. |
-| `style` | no | Only on cashout sections: `"emom"` \| `"e2mom"` \| `"e3mom"` \| `"amrap"` \| `"tabata"` \| `"stretch"` \| `"other"` |
+| `style` | no | Only on cashout sections: `"emom"` \| `"e2mom"` \| `"e3mom"` \| `"hiit"` \| `"amrap"` \| `"tabata"` \| `"stretch"` \| `"other"` |
 | `duration` | no | Free string shown in the UI, e.g. `"8 min"`, `"10 min AMRAP"` |
+| `countdown` | no | HIIT only. Prep countdown in seconds before the first work interval starts. |
+| `work` | no | HIIT only. Work interval length in seconds. |
+| `rest` | no | HIIT only. Rest interval length in seconds between work intervals. |
 
 **How `rounds` works in the app:** the app expands the movement list × rounds and creates a separate checkable row for each. E.g. `rounds: 3` with 4 movements = 12 checkable rows labeled Round 1 / Round 2 / Round 3.
 
@@ -81,6 +86,10 @@ public/workouts/genesis/program.json
 Use `rounds` when the whole section repeats as rounds. Use `sets` at the **section level** when the whole movement list repeats as grouped sets. Use `sets` at the **movement level** when individual movements need different total set counts inside that grouped-set layout.
 
 If a section has both `rounds` and `sets`, the UI renders nested groups: Round 1 → Set 1 / Set 2 / …, then Round 2 → Set 1 / Set 2 / …
+
+**EMOM archetype:** use `style: "emom"` / `"e2mom"` / `"e3mom"` with `duration`. The app expands the section into timed checkable rows and cycles through the listed movements across intervals.
+
+**HIIT archetype:** use `style: "hiit"` with `countdown`, `work`, `rest`, and a movement list. The app renders a coach timer with prep countdown, live work/rest phases, and one checkable row per work interval. `rounds` repeats the movement list.
 
 ---
 
@@ -185,6 +194,19 @@ When a day repeats across weeks (e.g. same Monday workout in week 2), only the `
               "movements": [
                 { "id": "co-1", "name": "Row", "reps": 12, "note": "12 cal, odd minutes" },
                 { "id": "co-2", "name": "Ball Slams", "reps": 12, "note": "even minutes" }
+              ]
+            },
+            {
+              "type": "cashout",
+              "label": "HIIT Finisher",
+              "style": "hiit",
+              "rounds": 3,
+              "countdown": 10,
+              "work": 40,
+              "rest": 20,
+              "movements": [
+                { "id": "co-3", "name": "Air Squats", "trackResult": true, "unit": "reps" },
+                { "id": "co-4", "name": "Push-Ups", "trackResult": true, "unit": "reps" }
               ]
             }
           ]

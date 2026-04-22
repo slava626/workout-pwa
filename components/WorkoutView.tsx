@@ -2,6 +2,7 @@
 
 import { WorkoutDay } from '@/types/workout';
 import SectionBlock from './SectionBlock';
+import { formatSeconds, getHiitTotalDurationSeconds } from '@/lib/sectionTiming';
 
 interface Props {
   workout: WorkoutDay;
@@ -17,7 +18,7 @@ interface Props {
 }
 
 const STYLE_LABEL: Record<string, string> = {
-  emom: 'EMOM', amrap: 'AMRAP', tabata: 'Tabata', stretch: 'Stretch', other: '',
+  emom: 'EMOM', e2mom: 'E2MOM', e3mom: 'E3MOM', hiit: 'HIIT', amrap: 'AMRAP', tabata: 'Tabata', stretch: 'Stretch', other: '',
 };
 
 export default function WorkoutView({
@@ -50,10 +51,18 @@ export default function WorkoutView({
 
       {workout.sections.map((section, i) => {
         const styleTag = section.type === 'cashout' && section.style ? STYLE_LABEL[section.style] || '' : '';
+        const hiitMeta = section.style === 'hiit'
+          ? [
+              section.countdown && section.countdown > 0 ? `${formatSeconds(section.countdown)} prep` : null,
+              section.work && section.work > 0 ? `${formatSeconds(section.work)} work` : null,
+              section.rest && section.rest > 0 ? `${formatSeconds(section.rest)} rest` : null,
+              getHiitTotalDurationSeconds(section) > 0 ? `${formatSeconds(getHiitTotalDurationSeconds(section))} total` : null,
+            ].filter(Boolean).join(' · ')
+          : null;
         const meta = [
           section.rounds && section.rounds > 1 ? `${section.rounds} rounds` : null,
           styleTag || null,
-          section.duration || null,
+          hiitMeta || section.duration || null,
         ].filter(Boolean).join(' · ');
 
         return (
@@ -62,6 +71,7 @@ export default function WorkoutView({
             section={section}
             meta={meta}
             user={user}
+            workoutStarted={workoutStarted}
             checks={checks}
             notes={notes}
             results={results}

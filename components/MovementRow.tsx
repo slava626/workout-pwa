@@ -11,6 +11,7 @@ interface Props {
   checked: boolean;
   note: string;
   result: string;
+  active?: boolean;
   setLabel?: string;  // e.g. "Set 2 / 4" or "Minute 3"
   onCheck: (rowId: string, value: boolean) => void;
   onNote: (rowId: string, value: string) => void;
@@ -20,7 +21,7 @@ interface Props {
 const PRESETS = ['Too Easy', 'Too Hard', 'Reduced Load', 'Increased Reps', 'Skipped'];
 
 export default function MovementRow({
-  movement, rowId, user, checked, note, result, setLabel, onCheck, onNote, onResult,
+  movement, rowId, user, checked, note, result, active = false, setLabel, onCheck, onNote, onResult,
 }: Props) {
   const [notesOpen, setNotesOpen] = useState(false);
 
@@ -33,7 +34,10 @@ export default function MovementRow({
 
   return (
     <div>
-      <div className="flex items-center px-4 py-4 gap-3">
+      <div className={[
+        'flex items-center px-4 py-4 gap-3 transition-colors',
+        active ? 'bg-fuchsia-500/10' : '',
+      ].join(' ')}>
         {/* Checkbox */}
         <button
           onClick={() => onCheck(rowId, !checked)}
@@ -63,7 +67,10 @@ export default function MovementRow({
         {/* Movement info */}
         <div className={['flex-1 min-w-0', checked ? 'opacity-40' : ''].join(' ')}>
           {setLabel && (
-            <div className="text-gray-500 text-xs font-semibold uppercase tracking-widest mb-0.5">
+            <div className={[
+              'text-xs font-semibold uppercase tracking-widest mb-0.5',
+              active ? 'text-fuchsia-200' : 'text-gray-500',
+            ].join(' ')}>
               {setLabel}
             </div>
           )}

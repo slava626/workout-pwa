@@ -1,12 +1,16 @@
 'use client';
 
+import { useCallback, useState } from 'react';
 import { Section } from '@/types/workout';
+import HiitCoach from './HiitCoach';
 import MovementRow from './MovementRow';
+import { EMOM_STYLES, HIIT_STYLE, getEmomIntervals, getHiitIntervals } from '@/lib/sectionTiming';
 
 interface Props {
   section: Section;
   meta: string;
   user: string;
+  workoutStarted: boolean;
   checks: Record<string, boolean>;
   notes: Record<string, string>;
   results: Record<string, string>;
@@ -21,33 +25,23 @@ const SECTION_COLORS: Record<string, string> = {
   cashout: 'text-green-400',
 };
 
-const EMOM_STYLES = new Set(['emom', 'e2mom', 'e3mom']);
-
-function intervalMinutes(style: string): number {
-  if (style === 'e2mom') return 2;
-  if (style === 'e3mom') return 3;
-  return 1;
-}
-
-function parseTotalMinutes(duration: string): number {
-  const m = duration.match(/(\d+)/);
-  return m ? parseInt(m[1]) : 0;
-}
-
 function getSectionSetCount(section: Section): number {
   if (section.sets && section.sets > 1) return section.sets;
   return section.movements.reduce((max, movement) => Math.max(max, movement.sets && movement.sets > 1 ? movement.sets : 1), 1);
 }
 
-export default function SectionBlock({ section, meta, user, checks, notes, results, onCheck, onNote, onResult }: Props) {
+export default function SectionBlock({ section, meta, user, workoutStarted, checks, notes, results, onCheck, onNote, onResult }: Props) {
   const headingColor = SECTION_COLORS[section.type] ?? 'text-gray-300';
   const isEmom = EMOM_STYLES.has(section.style ?? '');
+  const isHiit = section.style === HIIT_STYLE;
+  const [activeHiitRowId, setActiveHiitRowId] = useState<string | null>(null);
+  const handleActiveHiitRowChange = useCallback((rowId: string | null) => {
+    setActiveHiitRowId(rowId);
+  }, []);
 
   // ── EMOM / E2MOM / E3MOM layout ────────────────────────────────────────────
   if (isEmom && section.duration) {
-    const totalMin = parseTotalMinutes(section.duration);
-    const everyN = intervalMinutes(section.style!);
-    const totalIntervals = Math.floor(totalMin / everyN);
+    const intervals = getEmomIntervals(section);
 
     return (
       <div className="rounded-2xl bg-gray-800 overflow-hidden border border-gray-700">
@@ -58,16 +52,7 @@ export default function SectionBlock({ section, meta, user, checks, notes, resul
           {meta && <span className="text-gray-400 text-xs">{meta}</span>}
         </div>
         <div className="divide-y divide-gray-700/60">
-          {Array.from({ length: totalIntervals }, (_, i) => {
-            const intervalNum = i + 1;
-            const movement = section.movements[i % section.movements.length];
-            const rowId = `${movement.id}-m${intervalNum}`;
-            const minuteStart = (intervalNum - 1) * everyN;
-            const minuteEnd = minuteStart + everyN;
-            const intervalLabel = everyN === 1
-              ? `Minute ${intervalNum}`
-              : `${minuteStart}:00 – ${minuteEnd}:00`;
-            return (
+          {intervals.map(({ rowId, movement, label }) => (
               <MovementRow
                 key={rowId}
                 movement={movement}
@@ -79,8 +64,62 @@ export default function SectionBlock({ section, meta, user, checks, notes, resul
                 onCheck={onCheck}
                 onNote={onNote}
                 onResult={onResult}
-                setLabel={intervalLabel}
+                setLabel={label}
               />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (isHiit) {
+    const hiitIntervals = getHiitIntervals(section);
+
+    return (
+      <div className="rounded-2xl bg-gray-800 overflow-hidden border border-gray-700">
+        <div className="flex items-baseline justify-between px-4 py-3 border-b border-gray-700">
+          <span className={`font-semibold text-sm uppercase tracking-wide ${headingColor}`}>
+            {section.label}
+          </span>
+          {meta && <span className="text-gray-400 text-xs">{meta}</span>}
+        </div>
+        <HiitCoach
+          section={section}
+          workoutStarted={workoutStarted}
+          onActiveRowChange={handleActiveHiitRowChange}
+        />
+        <div className="divide-y divide-gray-700/60">
+          {Array.from({ length: section.rounds && section.rounds > 1 ? section.rounds : 1 }, (_, ri) => {
+            const round = ri + 1;
+            const intervalsForRound = hiitIntervals.filter((interval) => interval.round === round);
+            return (
+              <div key={round}>
+                {(section.rounds && section.rounds > 1) && (
+                  <div className="px-4 py-2 bg-gray-900/50">
+                    <span className="text-gray-500 text-xs font-semibold uppercase tracking-widest">
+                      Round {round}
+                    </span>
+                  </div>
+                )}
+                <div className="divide-y divide-gray-700/40">
+                  {intervalsForRound.map((interval) => (
+                    <MovementRow
+                      key={interval.rowId}
+                      movement={interval.movement}
+                      rowId={interval.rowId}
+                      user={user}
+                      checked={!!checks[interval.rowId]}
+                      note={notes[interval.rowId] ?? ''}
+                      result={results[interval.rowId] ?? ''}
+                      active={activeHiitRowId === interval.rowId}
+                      onCheck={onCheck}
+                      onNote={onNote}
+                      onResult={onResult}
+                      setLabel={interval.label}
+                    />
+                  ))}
+                </div>
+              </div>
             );
           })}
         </div>

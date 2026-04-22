@@ -2,6 +2,7 @@
 
 import { WorkoutDay } from '@/types/workout';
 import { formatElapsed } from '@/hooks/useTimer';
+import { EMOM_STYLES, HIIT_STYLE, getEmomIntervals, getHiitIntervals } from '@/lib/sectionTiming';
 
 interface Props {
   workout: WorkoutDay;
@@ -17,13 +18,6 @@ const SECTION_COLORS: Record<string, string> = {
   wod: 'text-blue-400',
   cashout: 'text-green-400',
 };
-
-const EMOM_STYLES = new Set(['emom', 'e2mom', 'e3mom']);
-
-function parseTotalMinutes(duration: string): number {
-  const m = duration.match(/(\d+)/);
-  return m ? parseInt(m[1]) : 0;
-}
 
 function getSectionSetCount(section: WorkoutDay['sections'][number]): number {
   if (section.sets && section.sets > 1) return section.sets;
@@ -67,18 +61,22 @@ export default function WorkoutRecap({ workout, elapsed, checks, notes, results,
         const rows: { name: string; note: string; result: string }[] = [];
 
         if (isEmom && section.duration) {
-          const totalMin = parseTotalMinutes(section.duration);
-          const everyN = section.style === 'e2mom' ? 2 : section.style === 'e3mom' ? 3 : 1;
-          const totalIntervals = Math.floor(totalMin / everyN);
-          for (let i = 0; i < totalIntervals; i++) {
-            const intervalNum = i + 1;
-            const mv = section.movements[i % section.movements.length];
-            const rowId = `${mv.id}-m${intervalNum}`;
+          for (const interval of getEmomIntervals(section)) {
+            const rowId = interval.rowId;
+            const mv = interval.movement;
             const note = notes[rowId] ?? '';
             const result = results[rowId] ?? '';
-            const label = everyN === 1 ? `Min ${intervalNum}` : `${(intervalNum - 1) * everyN}:00–${intervalNum * everyN}:00`;
             if (note || result) {
-              rows.push({ name: `${label} · ${mv.name}`, note, result });
+              rows.push({ name: `${interval.label} · ${mv.name}`, note, result });
+            }
+          }
+        } else if (section.style === HIIT_STYLE) {
+          for (const interval of getHiitIntervals(section)) {
+            const rowId = interval.rowId;
+            const note = notes[rowId] ?? '';
+            const result = results[rowId] ?? '';
+            if (note || result) {
+              rows.push({ name: `${interval.label} · ${interval.movement.name}`, note, result });
             }
           }
         } else {
